@@ -46,54 +46,61 @@ def physio():
 # Route to Handle QR Code Generation
 @app.route('/generate_qr')
 def generate_qr():
-    # Retrieve the evaluation_form parameter from the query string
+    """
+    Generates a QR code for the selected evaluation form and redirects to the result waiting page.
+    
+    Steps:
+    1. Retrieve the 'evaluation_form' parameter from the query string.
+    2. Validate that the 'evaluation_form' parameter is provided.
+    3. Generate a unique session ID for the evaluation.
+    4. Dynamically determine the base URL of the deployed app.
+    5. Construct the full URL for the patient form using the session ID and evaluation form.
+    6. Generate a QR code image for the constructed URL.
+    7. Save the QR code image to the 'static/qr_codes' directory.
+    8. Redirect the user to the result waiting page.
+    """
+    
+    # Step 1: Retrieve the 'evaluation_form' parameter from the query string
     evaluation_form = request.args.get('evaluation_form')
-
-    # Check if the evaluation_form parameter is provided
+    
+    # Step 2: Validate that the 'evaluation_form' parameter is provided
     if not evaluation_form:
-        # Return a 400 Bad Request error if the parameter is missing
-        return "No evaluation form specified.", 400
+        return "No evaluation form specified.", 400  # Return a 400 Bad Request if missing
     
-    # Generate a unique session ID
+    # Step 3: Generate a unique session ID using UUID4
     session_id = str(uuid.uuid4())
-
-    # Get the local IP address dynamically using socket
-    try:
-        # This method opens a UDP socket and connects to a public IP address, without sending data.
-        # It then gets the socket's own address, which is the local IP address.
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(("8.8.8.8", 80))  # Using Google's public DNS server
-        server_ip = s.getsockname()[0]
-        s.close()
-    except Exception as e:
-        # Handle error if IP address cannot be determined
-        logging.error(f"Error obtaining local IP address: {e}")
-        return "Server IP address could not be determined.", 500
-
-    # Use the PORT variable (ensure you have PORT defined at the top)
-    PORT = 8000  # Replace with the port number you're using in app.run()
     
-    # Construct the URL
-    qr_url = f'http://{server_ip}:{PORT}{url_for("patient_form", session_id=session_id, evaluation_form=evaluation_form)}'
-
-    # Log the QR code URL
+    # Step 4: Dynamically determine the base URL of the deployed app
+    # 'request.host_url' captures the base URL (includes protocol and domain)
+    base_url = request.host_url.rstrip('/')  # Removes trailing slash to prevent double slashes
+    
+    # Step 5: Construct the full URL for the patient form using the session ID and evaluation form
+    # 'url_for' generates the URL for the 'patient_form' route with the given parameters
+    qr_url = f'{base_url}{url_for("patient_form", session_id=session_id, evaluation_form=evaluation_form)}'
+    
+    # Log the generated QR code URL for debugging purposes
     logging.info(f"Generated QR code URL: {qr_url}")
-
-    # Generate the QR code image
+    
+    # Step 6: Generate the QR code image for the constructed URL
     img = qrcode.make(qr_url)
-
-    # Create a directory to store generated QR codes if it doesn't exist
+    
+    # Step 7: Define the directory to store generated QR codes
     qr_directory = os.path.join('static', 'qr_codes')
+    
+    # Create the directory if it doesn't exist
     if not os.path.exists(qr_directory):
         os.makedirs(qr_directory)
-
-    # Save the QR code image to the static folder
+    
+    # Define the filename for the QR code image using the session ID
     qr_filename = f'{session_id}.png'
     qr_path = os.path.join(qr_directory, qr_filename)
+    
+    # Save the QR code image to the defined path
     img.save(qr_path)
-
-    # Redirect to the result waiting page
+    
+    # Step 8: Redirect the user to the result waiting page with session details
     return redirect(url_for('wait_for_result', session_id=session_id, evaluation_form=evaluation_form))
+
 
 
 
