@@ -11,7 +11,7 @@
             <h2>{{ questionnaire.name }}</h2>
             <p>{{ questionnaire.description }}</p>
             <!-- Link to view and fill out the questionnaire -->
-            <a href="{{ url_for('user_questionnaire_detail', questionnaire_slug=questionnaire.slug) }}" class="btn btn-primary">View and Fill Out</a>
+            <a href="{{ url_for('user_questionnaires', questionnaire_slug=questionnaire.slug) }}" class="btn btn-primary">View and Fill Out</a>
         </li>
         {% endfor %}
     </ul>
