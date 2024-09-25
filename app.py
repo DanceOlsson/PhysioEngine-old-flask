@@ -182,7 +182,7 @@ def user_questionnaires():
         # Add more questionnaires as needed
     ]
     # Render the general user questionnaire list template
-    return render_template('user_questionnaires.html', questionnaires=questionnaires)
+    return render_template('users/user_questionnaires.html', questionnaires=questionnaires)
 
 
 
