@@ -1,0 +1,22 @@
+{% extends 'base.html' %} <!-- Inherit from base.html -->
+
+{% block title %}Home - Physio Evaluation Tool{% endblock %} <!-- Set the page title -->
+
+{% block content %}
+<div class="container">
+    <!-- Main heading -->
+    <h1>Welcome to the Physiotherapist Evaluation Tool</h1>
+    <!-- Description or instructions -->
+    <p>This platform provides standardized evaluation forms to assist physiotherapists and patients in assessing health.</p>
+    <!-- Additional content can be added here -->
+
+    <!-- Links to the two main user flows -->
+    <div class="links">
+        <h2>Select an Option:</h2>
+        <!-- I am a Physiotherapist -->
+        <a href="{{ url_for('physio') }}" class="btn btn-primary">I'm a Physiotherapist</a>
+        <!-- I just wanna see the questionnaires and get a score -->
+        <a href="{{ url_for('user_questionnaires') }}" class="btn btn-secondary">I just wanna see the questionnaires and get a score</a>
+    </div>
+</div>
+{% endblock %}

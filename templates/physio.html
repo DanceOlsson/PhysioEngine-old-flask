@@ -1,0 +1,18 @@
+{% extends 'base.html' %} <!-- Inherit from base.html -->
+
+{% block title %}Physiotherapist Interface{% endblock %} <!-- Set the page title -->
+
+{% block content %}
+<!-- physio.html -->
+<div class="container">
+    <h1>Select a Questionnaire to Generate a QR Code</h1>
+    <ul>
+        <li>
+            <!-- Use a link to send a GET request -->
+            <a href="{{ url_for('generate_qr', evaluation_form='oswestry') }}">Oswestry Disability Index</a>
+        </li>
+        <!-- Add more questionnaires as needed -->
+    </ul>
+</div>
+
+{% endblock %}

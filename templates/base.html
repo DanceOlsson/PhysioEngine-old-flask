@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title block that can be overridden by child templates -->
+    <title>{% block title %}Physio Evaluation Tool{% endblock %}</title>
+    <!-- Link to your CSS stylesheet in the static folder -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Content block where child templates will insert their content -->
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Waiting for Patient Result{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Waiting for Patient Submission</h1>
+    <p>Please ask the patient to scan the QR code and complete the questionnaire.</p>
+    <!-- Display the QR code image -->
+    <img src="{{ url_for('static', filename='qr_codes/' + session_id + '.png') }}" alt="QR Code">
+    <!-- Auto-refresh the page every 5 seconds -->
+    <script>
+    setTimeout(function(){
+        // Force a GET request by changing the window location
+        window.location.href = window.location.href;
+    }, 5000);
+    </script>
+
+</div>
+{% endblock %}

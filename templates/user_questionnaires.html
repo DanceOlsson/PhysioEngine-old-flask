@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Available Questionnaires{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1>Available Questionnaires</h1>
+    <ul>
+        {% for questionnaire in questionnaires %}
+        <li>
+            <h2>{{ questionnaire.name }}</h2>
+            <p>{{ questionnaire.description }}</p>
+            <!-- Link to view and fill out the questionnaire -->
+            <a href="{{ url_for('user_questionnaire_detail', questionnaire_slug=questionnaire.slug) }}" class="btn btn-primary">View and Fill Out</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
