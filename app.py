@@ -6,7 +6,8 @@ import uuid    # For generating unique session IDs
 import logging # For logging activity and catching issues
 import socket  # For getting the local IP address
 
-
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from a .env file
 
 # Create an instance of the Flask class for your web application
 app = Flask(__name__)
@@ -62,17 +63,18 @@ def generate_qr():
     
     # Step 1: Retrieve the 'evaluation_form' parameter from the query string
     evaluation_form = request.args.get('evaluation_form')
-    
+        
     # Step 2: Validate that the 'evaluation_form' parameter is provided
     if not evaluation_form:
         return "No evaluation form specified.", 400  # Return a 400 Bad Request if missing
-    
+
     # Step 3: Generate a unique session ID using UUID4
     session_id = str(uuid.uuid4())
     
     # Step 4: Dynamically determine the base URL of the deployed app
-    # 'request.host_url' captures the base URL (includes protocol and domain)
-    base_url = request.host_url.rstrip('/')  # Removes trailing slash to prevent double slashes
+    # Use the 'BASE_URL' environment variable if set (in terminal venv?); otherwise, use 'request.host_url'
+    # 'request.host_url' captures the base URL from the hosting service instead(I think?) (includes protocol and domain)
+    base_url = os.environ.get('BASE_URL', request.host_url.rstrip('/'))  # Removes trailing slash to prevent double slashes
     
     # Step 5: Construct the full URL for the patient form using the session ID and evaluation form
     # 'url_for' generates the URL for the 'patient_form' route with the given parameters
@@ -152,7 +154,7 @@ def patient_form(session_id, evaluation_form):
         # Render the appropriate form based on the evaluation_form parameter
         if evaluation_form == 'oswestry':
             # Render the Oswestry Disability Index form template
-            return render_template('oswestry_form.html', session_id=session_id)
+            return render_template('questionnaires/oswestry_form.html', session_id=session_id)
         else:
             # Return a 404 error if the form is not found
             return "Form not found", 404

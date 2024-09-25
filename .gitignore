@@ -1,1 +1,17 @@
+# Environment variables
 .env
+
+# macOS system files
+.DS_Store
+
+# Virtual environment
+venv/
+
+# Generated QR code images
+static/qr_codes/
+
+# Python cache files
+__pycache__/
+
+# Other unnecessary files
+*.pyc
