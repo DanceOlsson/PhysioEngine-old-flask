@@ -13,10 +13,10 @@
     <!-- Links to the two main user flows -->
     <div class="links">
         <h2>Select an Option:</h2>
-        <!-- I am a Physiotherapist -->
+        <!-- Link for the Physiotherapist -->
         <a href="{{ url_for('physio') }}" class="btn btn-primary">I'm a Physiotherapist</a>
-        <!-- I just wanna see the questionnaires and get a score -->
-        <a href="{{ url_for('user_questionnaires') }}" class="btn btn-secondary">I just wanna see the questionnaires and get a score</a>
+        <!-- Link for general users -->
+        <a href="{{ url_for('users/user_questionnaires') }}" class="btn btn-secondary">I just wanna see the questionnaires and get a score</a>
     </div>
 </div>
 {% endblock %}
