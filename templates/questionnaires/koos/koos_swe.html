@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}KOOS Frågeformulär{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnaires/styles.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>KOOS Frågeformulär</h1>
+        <p class="instructions">{{ instructions }}</p>
+        <form method="POST" action="{{ url_for('patient_form', session_id=session_id, evaluation_form='koos') }}">
+            {% for question in questions %}
+                {% if loop.first or question.section != questions[loop.index0 -1].section %}
+                    <h2>{{ question.section }}</h2>
+                {% endif %}
+                <div class="question">
+                    <p>{{ question.text }}</p>
+                    {% for option in question.options %}
+                        <label>
+                            <input type="radio" name="question_{{ question.id }}" value="{{ option.value }}" required>
+                            {{ option.text }}
+                        </label>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+            <button type="submit">Skicka in</button>
+        </form>
+    </div>
+{% endblock %}

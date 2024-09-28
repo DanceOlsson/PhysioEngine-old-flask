@@ -1,20 +1,38 @@
+<!-- /templates/wait_for_result.html -->
 {% extends 'base.html' %}
 
-{% block title %}Waiting for Patient Result{% endblock %}
+{% block title %}Väntar på Patient Resultat{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnaires/styles.css') }}">
+    <!-- Meta Refresh: Refresh the page every 5 seconds -->
+    <meta http-equiv="refresh" content="5">
+{% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>Waiting for Patient Submission</h1>
-    <p>Please ask the patient to scan the QR code and complete the questionnaire.</p>
-    <!-- Display the QR code image -->
-    <img src="{{ url_for('static', filename='qr_codes/' + session_id + '.png') }}" alt="QR Code">
-    <!-- Auto-refresh the page every 5 seconds -->
+    <div class="container">
+        <h1>Väntar på Patientens Inlämning</h1>
+        <p>Be patienten att skanna QR-koden och fylla i frågeformuläret.</p>
+        
+        <!-- Display the QR code image with cache busting -->
+        <img src="{{ url_for('static', filename='qr_codes/' + session_id + '.png') }}?v={{ session_id }}" alt="QR Code">
+        
+        <!-- Loading Indicator -->
+        <p>Resultaten uppdateras automatiskt. Vänta medans patienten svarar på formuläret...</p>
+        
+        <!-- Option to manually refresh -->
+        <p>Du kan också <a href="{{ url_for('wait_for_result', session_id=session_id, evaluation_form=evaluation_form) }}">uppdatera sidan</a> manuellt.</p>
+        
+        <!-- Link to go back to physiotherapist interface -->
+        <p><a href="{{ url_for('physio') }}">Tillbaka till gränssnittet</a></p>
+    </div>
+    
+    <!-- JavaScript-based Auto-Refresh as a Fallback -->
     <script>
-    setTimeout(function(){
-        // Force a GET request by changing the window location
-        window.location.href = window.location.href;
-    }, 5000);
+        // Set a timeout to refresh the page every 5 seconds
+        setTimeout(function(){
+            window.location.reload(true);
+        }, 5000); // 5000 milliseconds = 5 seconds
     </script>
-
-</div>
 {% endblock %}

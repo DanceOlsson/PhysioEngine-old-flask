@@ -1,11 +1,17 @@
+<!-- /templates/display_result.html -->
 {% extends 'base.html' %}
 
 {% block title %}Patient Result{% endblock %}
 
 {% block content %}
 <div class="container">
-    <h1>Patient's Result</h1>
-    <p>The patient's total score is: <strong>{{ total_score }}</strong></p>
-    <!-- You can add more detailed interpretation here -->
+    <h1>Patientens Resultat</h1>
+    <ul>
+        {% for subscale, score in subscale_scores.items() %}
+            <li><strong>{{ subscale }}:</strong> {{ score }} av 100</li>
+        {% endfor %}
+    </ul>
+    <!-- Optionally, add more detailed interpretation or recommendations here -->
+    <p><a href="{{ url_for('physio') }}">Tillbaka till gränssnittet</a></p>
 </div>
 {% endblock %}

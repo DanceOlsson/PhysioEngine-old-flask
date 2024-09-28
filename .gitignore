@@ -15,3 +15,8 @@ __pycache__/
 
 # Other unnecessary files
 *.pyc
+
+# Ignore results directory
+results/
+
+*.log

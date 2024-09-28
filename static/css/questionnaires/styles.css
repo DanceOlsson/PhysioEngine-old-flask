@@ -1,0 +1,107 @@
+/* Resetting default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+/* Main container */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+/* Instructions paragraph */
+p.instructions {
+    font-size: 18px;
+    margin-bottom: 30px;
+    text-align: justify;
+}
+
+/* Question block */
+.question {
+    margin-bottom: 25px;
+}
+
+/* Question text */
+.question p {
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Answer options */
+.question label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.question input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Submit button */
+button {
+    display: block;
+    width: 100%;
+    background-color: #2980b9;
+    color: #fff;
+    border: none;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+button:hover {
+    background-color: #1f6391;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    body {
+        margin: 10px;
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    p.instructions,
+    .question p,
+    .question label {
+        font-size: 16px;
+    }
+
+    button {
+        font-size: 16px;
+        padding: 12px;
+    }
+}

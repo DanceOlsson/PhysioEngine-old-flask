@@ -8,10 +8,10 @@
     <h1>Select a Questionnaire to Generate a QR Code</h1>
     <ul>
         <li>
-            <!-- Use a link to send a GET request -->
-            <a href="{{ url_for('generate_qr', evaluation_form='oswestry') }}">Oswestry Disability Index</a>
+            <!-- Link to generate a QR code for the KOOS questionnaire -->
+            <a href="{{ url_for('generate_qr', evaluation_form='koos') }}">KOOS Questionnaire</a>
         </li>
-        <!-- Add more questionnaires as needed -->
+        <!-- Add more questionnaires as needed in the future -->
     </ul>
 </div>
 
