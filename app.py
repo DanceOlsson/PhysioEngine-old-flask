@@ -30,12 +30,6 @@ logging.basicConfig(level=logging.INFO)
 # Fråga chatGPT om implementering av loggning!! Finns att hitta med ctrl+f i original OBSchatten i chatGPT
 
 
-@app.before_request
-def redirect_to_www():
-    # Check if the host is the root domain without www
-    if request.host == "physioengine.com":
-        # Redirect to the www version
-        return redirect(f"https://www.physioengine.com{request.path}", code=301)
 
 
 # ------------------------- helper functions ----------------------
