@@ -20,10 +20,12 @@ BASE_URL = os.environ.get('BASE_URL', 'https://safe-newly-salmon.ngrok-free.app'
 app = Flask(__name__)
 
 
+#yooooo
+#hell haayyaaaahhh
 
 
 
-# Configure logging
+# Configure logging   hhhhhh
 # level=logging.INFO: Sets the logging level to INFO, which means all messages at this level and above (WARNING, ERROR, CRITICAL) will be logged.
 # Default Handler: By default, logs are printed to the console (stdout).
 logging.basicConfig(level=logging.INFO)
