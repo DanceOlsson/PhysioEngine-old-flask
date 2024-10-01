@@ -36,6 +36,10 @@ p.instructions {
     font-size: 18px;
     margin-bottom: 30px;
     text-align: justify;
+    /* New Styles for Instructions */
+    font-weight: normal; /* Removed bold */
+    color: #555; /* Slightly muted color to stand out without bold */
+    line-height: 1.5;
 }
 
 /* Question block */
@@ -47,7 +51,7 @@ p.instructions {
 .question p {
     font-size: 18px;
     margin-bottom: 15px;
-    font-weight: bold;
+    font-weight: normal; /* Changed from bold to normal */
 }
 
 /* Answer options */
@@ -104,4 +108,199 @@ button:hover {
         font-size: 16px;
         padding: 12px;
     }
+
+    /* Adjust button height for better tap targets on mobile */
+    .koos-form .answer-btn {
+        height: 50px;
+        font-size: 0.9rem;
+        padding: 10px; /* Adjust padding for consistency */
+    }
 }
+
+/* ----------------- New Styles for Horizontal, Color-Coded Buttons ----------------- */
+
+/* Hide the actual radio inputs */
+.btn-check {
+    display: none;
+}
+
+/* Ensure the answer buttons are flexible and form a cohesive block */
+.answer-btn {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 12px; /* Reduced padding to accommodate taller buttons */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 0.95rem; /* Slightly smaller font for better fit */
+    height: auto; /* Remove fixed height to allow dynamic sizing */
+    min-height: 60px; /* Ensure a minimum height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Updated Styles for Consistent Text Placement */
+    white-space: normal; /* Allow text to wrap */
+    overflow: visible; /* Allow overflow */
+    text-overflow: clip; /* Remove ellipsis */
+}
+
+/* Remove border from the first and last buttons to create a seamless block */
+.btn-group .answer-btn:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.btn-group .answer-btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* Change background color based on data-color attribute */
+.answer-btn[data-color="1"] {
+    background-color: #ffcccc; /* Light Red */
+    border-color: #ff9999;
+}
+
+.answer-btn[data-color="2"] {
+    background-color: #ffe5cc; /* Light Orange */
+    border-color: #ffbf80;
+}
+
+.answer-btn[data-color="3"] {
+    background-color: #fff2cc; /* Light Yellow */
+    border-color: #ffff80;
+}
+
+.answer-btn[data-color="4"] {
+    background-color: #d9ead3; /* Light Green */
+    border-color: #a8d08d;
+}
+
+.answer-btn[data-color="5"] {
+    background-color: #a8d08d; /* Green */
+    border-color: #6fa8dc;
+}
+
+/* Change text color on hover */
+.answer-btn:hover {
+    opacity: 0.8;
+}
+
+/* Change background and text color when active (selected) */
+.btn-check:checked + .answer-btn {
+    color: #fff;
+    /* Darken the background color for selected state */
+    background-color: #5a9;
+    border-color: #5a9;
+}
+
+/* Optional: Style for focus outline */
+.btn-check:focus + .answer-btn {
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+/* Ensure button group displays correctly */
+.btn-group {
+    display: flex;
+    gap: 3px; /* Further reduce spacing between buttons */
+    margin-bottom: 20px; /* Added spacing below button groups */
+}
+
+/* Optional: Adjust the label font weight */
+.answer-btn {
+    font-weight: normal;
+}
+
+/* Optional: Prevent buttons from shrinking on smaller screens */
+.btn-group .answer-btn {
+    min-width: 60px; /* Adjust as needed */
+}
+
+/* Optional: Add pointer cursor to the buttons */
+.answer-btn {
+    cursor: pointer;
+}
+
+/* ---------------------------------------------------------------------------------- */
+
+/* ----------------- Additional Enhancements for Separation and Typography ----------------- */
+
+/* Scoped to KOOS questionnaire form */
+.koos-form {
+    /* If not already added, add this class to your main container in HTML */
+    /* Example: <div class="container koos-form"> */
+}
+
+/* Increase spacing after instruction sections */
+.koos-form .card-body p.instructions {
+    margin-bottom: 40px; /* Increased from 30px */
+    font-size: 20px; /* Increased font size */
+    font-weight: normal; /* Ensure it's not bold */
+    color: #555; /* Slightly muted color */
+    line-height: 1.6; /* Improved readability */
+}
+
+/* Style section headings (h2) */
+.koos-form h2.section-heading {
+    margin-top: 30px; /* Added space before headings */
+    margin-bottom: 20px; /* Added space after headings */
+    font-size: 1.8rem; /* Increased font size */
+    font-weight: bold; /* Ensure headings are bold */
+    color: #2c3e50; /* Consistent color for headings */
+}
+
+/* Style questions */
+.koos-form .question p {
+    font-size: 20px; /* Increased font size */
+    font-weight: normal; /* Changed from bold to normal */
+    margin-bottom: 20px; /* Increased spacing below questions */
+}
+
+/* Style answer labels if needed */
+.koos-form .question label {
+    font-size: 16px; /* Increase font size if desired */
+    font-weight: normal; /* Ensure options are not overly bold */
+}
+
+/* Adjust the submit button */
+.koos-form button {
+    font-size: 20px; /* Increased font size */
+    padding: 18px; /* Increased padding */
+    margin-top: 50px; /* Increased top margin */
+    border-radius: 6px; /* Slightly larger border radius */
+}
+
+/* Ensure responsiveness for enhanced typography and spacing */
+@media (max-width: 600px) {
+    .koos-form .card-body p.instructions {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .koos-form h2.section-heading {
+        font-size: 1.5rem;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    .koos-form .question p {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .koos-form button {
+        font-size: 16px;
+        padding: 15px;
+        margin-top: 40px;
+    }
+
+    /* Further adjust button text alignment on mobile */
+    .koos-form .answer-btn {
+        height: 50px;
+        font-size: 0.9rem;
+        padding: 10px; /* Adjust padding for consistency */
+    }
+}
+
+/* ---------------------------------------------------------------------------------- */
