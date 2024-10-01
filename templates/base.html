@@ -8,10 +8,16 @@
     <title>{% block title %}Physio Evaluation Tool{% endblock %}</title>
     <!-- Link to your CSS stylesheet in the static folder -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnaires/styles.css') }}">
+    <!-- Additional head content -->
+    {% block head %}
+    {% endblock %}
 </head>
 <body>
     <!-- Content block where child templates will insert their content -->
     {% block content %}
+    {% endblock %}
+    <!-- Additional scripts -->
+    {% block scripts %}
     {% endblock %}
 </body>
 </html>

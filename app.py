@@ -369,7 +369,6 @@ def user_questionnaires():
 # Route for "thank you" page
 @app.route('/thank_you')
 def thank_you():
-    # Render a simple thank-you template
     return render_template('thank_you.html')
 
 
