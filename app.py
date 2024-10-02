@@ -1,5 +1,6 @@
 # Import the Flask class and render_template function and others from the flask module
 from flask import Flask, render_template, request, redirect, url_for
+from flask_talisman import Talisman
 import qrcode  # For generating QR codes
 import os      # For file path operations
 import uuid    # For generating unique session IDs
@@ -14,12 +15,13 @@ from urllib.parse import urljoin
 
 BASE_URL = os.environ.get('BASE_URL', 'https://safe-newly-salmon.ngrok-free.app')  # Default to localhost for local testing
 
-# testing github source control
+
 
 # Create an instance of the Flask class for your web application
 app = Flask(__name__)
 
-
+# Initialize Talisman with default settings
+Talisman(app)
 
 
 
