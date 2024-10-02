@@ -1,22 +1,58 @@
-{% extends 'base.html' %} <!-- Inherit from base.html -->
+<!-- templates/index.html -->
+{% extends 'base.html' %}
 
-{% block title %}Home - Physio Evaluation Tool{% endblock %} <!-- Set the page title -->
+{% block title %}Home - PhysioEngine{% endblock %}
 
 {% block content %}
-<div class="container">
-    <!-- Main heading -->
-    <h1>Welcome to the Physiotherapist Evaluation Tool</h1>
-    <!-- Description or instructions -->
-    <p>This platform provides standardized evaluation forms to assist physiotherapists and patients in assessing health.</p>
-    <!-- Additional content can be added here -->
+<main>
+    <div class="container mt-5">
+        <!-- Introduction Section using Bootstrap Jumbotron -->
+        <div class="jumbotron bg-white shadow-sm rounded">
+            <h1 class="display-4">Welcome to PhysioEngine</h1>
+            <p class="lead">Streamlining physiotherapy assessments for professionals and patients alike.</p>
+            <hr class="my-4">
+            <!-- Origin Story and Function -->
+            <p>
+                PhysioEngine was born out of a desire to simplify the evaluation process in physiotherapy. Recognizing the challenges faced by physiotherapists in gathering and analyzing patient data, we created a tool that bridges the gap between practitioners and patients. Our platform allows for easy generation of QR codes leading to standardized questionnaires, providing real-time results and enhancing the overall efficiency of assessments.
+            </p>
+            <!-- Call to Action Buttons -->
+            <div class="d-flex justify-content-center">
+                <!-- Ensure the Physiotherapist button is primary (green) -->
+                <a class="btn btn-primary btn-lg mr-3" href="{{ url_for('physio') }}" role="button">
+                    <i class="fas fa-user-md mr-2"></i>I'm a Physiotherapist
+                </a>
+                <!-- Ensure the User Questionnaire button is secondary (blue) -->
+                <a class="btn btn-secondary btn-lg" href="{{ url_for('user_questionnaires') }}" role="button">
+                    <i class="fas fa-list mr-2"></i>Explore Questionnaires
+                </a>
+            </div>
+        </div>
 
-    <!-- Links to the two main user flows -->
-    <div class="links">
-        <h2>Select an Option:</h2>
-        <!-- Link for the Physiotherapist -->
-        <a href="{{ url_for('physio') }}" class="btn btn-primary">I'm a Physiotherapist</a>
-        <!-- Link for general users -->
-        <a href="{{ url_for('user_questionnaires') }}" class="btn btn-secondary">I just wanna see the questionnaires and get a score</a>
+        <!-- Additional Information Section -->
+        <div class="row">
+            <!-- Physiotherapist Information -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">For Physiotherapists</h3>
+                        <p class="card-text">
+                            Generate QR codes for your patients to fill out evaluation forms on their devices. Receive instant feedback and streamline your workflow.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Patient Information -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h3 class="card-title">For Patients</h3>
+                        <p class="card-text">
+                            Easily access and complete questionnaires provided by your physiotherapist. Your responses are securely transmitted for immediate analysis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</main>
 {% endblock %}

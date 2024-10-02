@@ -1,3 +1,4 @@
+<!-- templates/base.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +7,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title block that can be overridden by child templates -->
     <title>{% block title %}Physio Evaluation Tool{% endblock %}</title>
-    <!-- Link to your CSS stylesheet in the static folder -->
+    <!-- Bootstrap CSS via CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p8F1eRNNfE4hOjDL8pTeO1uMvMBzCj0G9L+48CIb8jvO6lGh7B7tG5mFwgSCcf7Dk+Q84wEju1PmFzTULCRVg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Link to your existing custom CSS stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnaires/styles.css') }}">
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}" type="image/x-icon">
     <!-- Additional head content -->
     {% block head %}
     {% endblock %}
 </head>
 <body>
+    <!-- Navigation Bar Start -->
+    <!-- the if show_navbar  is a condition in all routes that decides if it shows or not. To not show it when patient fills in questionnaire-->
+    {% if show_navbar %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+        <!-- Create logo, store in static/images, then put it in HEREEEE-->
+        <img src="{{ url_for('static', filename='images/logo.png') }}" width="30" height="30" alt="PhysioEngine Logo" class="d-inline-block align-top">
+        PhysioEngine
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" 
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <!-- Home Link -->
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <!-- Physiotherapist Dashboard Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('physio') }}">Physiotherapist Dashboard</a>
+                </li>
+                <!-- General User Questionnaires Link -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('user_questionnaires') }}">Questionnaires</a>
+                </li>
+                <!-- Future Navigation Items can be added here -->
+            </ul>
+        </div>
+    </nav>
+    {% endif %}
+    <!-- Navigation Bar End -->
+
     <!-- Content block where child templates will insert their content -->
     {% block content %}
     {% endblock %}
+
+
+    <!-- Bootstrap JS and dependencies via CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <!-- Additional scripts -->
     {% block scripts %}
     {% endblock %}

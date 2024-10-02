@@ -1,6 +1,7 @@
 # Import the Flask class and render_template function and others from the flask module
 from flask import Flask, render_template, request, redirect, url_for
 from flask_talisman import Talisman
+from datetime import datetime  # Import datetime
 import qrcode  # For generating QR codes
 import os      # For file path operations
 import uuid    # For generating unique session IDs
@@ -23,7 +24,10 @@ app = Flask(__name__)
 # Initialize Talisman with default settings
 Talisman(app)
 
-
+# Context Processor to inject current year into all templates
+@app.context_processor
+def inject_current_year():
+    return {'current_year': datetime.now().year}
 
 # Configure logging   hhhhhh
 # level=logging.INFO: Sets the logging level to INFO, which means all messages at this level and above (WARNING, ERROR, CRITICAL) will be logged.
@@ -122,7 +126,7 @@ def calculate_koos_scores(responses):
 # Define the route for the home page using the route() decorator
 @app.route('/')
 def home():
-    return render_template('index.html')  # This will render the index.html template
+    return render_template('index.html', show_navbar=True)  # This will render the index.html template
 
 
 
@@ -135,7 +139,7 @@ def home():
 @app.route('/physio')
 def physio():
     # Render the 'physio.html' template for the physiotherapist interface
-    return render_template('physio.html')
+    return render_template('physio.html', show_navbar=True)
 
 
 
@@ -363,7 +367,7 @@ def user_questionnaires():
         # Add more questionnaires as needed
     ]
     # Render the general user questionnaire list template
-    return render_template('users/user_questionnaires.html', questionnaires=questionnaires)
+    return render_template('users/user_questionnaires.html', questionnaires=questionnaires, show_navbar=True)
 
 
 

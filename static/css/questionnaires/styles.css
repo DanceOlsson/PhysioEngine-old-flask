@@ -1,139 +1,132 @@
-/* Resetting default browser styles */
+/* static/css/questionnaires/styles.css */
+
+/* ----------------- Importing Google Fonts ----------------- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap');
+
+/* ----------------- Resetting Default Browser Styles ----------------- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body styling */
+/* ----------------- Root Variables for Easy Maintenance ----------------- */
+:root {
+    --primary-color: #27ae60; /* Green */
+    --secondary-color: #2c3e50; /* Deep Blue */
+    --accent-color: #3498db; /* Light Blue */
+    --background-color: #f7f7f7; /* Light Gray */
+    --text-color: #333333; /* Dark Gray */
+    --heading-color: #2c3e50; /* Deep Blue for headings */
+    --card-background: #ffffff; /* White for cards */
+    --footer-background: #ffffff; /* White for footer */
+    --button-primary-hover: #1a252f; /* Darker Deep Blue */
+    --button-secondary-hover: #1e8449; /* Darker Soft Green */
+}
+
+/* ----------------- Body Styling ----------------- */
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
     line-height: 1.6;
-    margin: 20px;
 }
 
-/* Main container */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* ----------------- Heading Styles ----------------- */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif;
+    color: var(--heading-color);
 }
 
-/* Heading styles */
-h1 {
-    text-align: center;
-    margin-bottom: 30px;
-    color: #2c3e50;
+/* ----------------- Jumbotron Customization ----------------- */
+.jumbotron {
+    background-color: #ffffff; /* White background for cleanliness */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    border-radius: 10px;
 }
 
-/* Instructions paragraph */
-p.instructions {
-    font-size: 18px;
-    margin-bottom: 30px;
-    text-align: justify;
-    /* New Styles for Instructions */
-    font-weight: normal; /* Removed bold */
-    color: #555; /* Slightly muted color to stand out without bold */
-    line-height: 1.5;
+/* ----------------- Button Styling ----------------- */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-/* Question block */
-.question {
-    margin-bottom: 25px;
+.btn-primary:hover {
+    background-color: var(--button-primary-hover);
+    border-color: var(--button-primary-hover);
 }
 
-/* Question text */
-.question p {
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: normal; /* Changed from bold to normal */
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
-/* Answer options */
-.question label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 10px;
-    cursor: pointer;
+.btn-secondary:hover {
+    background-color: var(--button-secondary-hover);
+    border-color: var(--button-secondary-hover);
 }
 
-.question input[type="radio"] {
-    margin-right: 10px;
+/* ----------------- Custom Paragraph Styles ----------------- */
+p {
+    color: #5a5a5a;
+    line-height: 1.6;
 }
 
-/* Submit button */
-button {
-    display: block;
-    width: 100%;
-    background-color: #2980b9;
-    color: #fff;
+/* ----------------- Additional Padding Utilities ----------------- */
+.mt-5 {
+    margin-top: 3rem !important;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem !important;
+}
+
+/* ----------------- Card Styling ----------------- */
+.card {
+    border: none; /* Remove default border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Light shadow */
+    background-color: var(--card-background);
+}
+
+.card-title {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.card-text {
+    color: #5a5a5a;
+}
+
+/* ----------------- List Group Customization ----------------- */
+.list-group-item {
     border: none;
-    padding: 15px;
-    font-size: 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 40px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: var(--card-background); /* White background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-button:hover {
-    background-color: #1f6391;
+.list-group-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Responsive design */
-@media (max-width: 600px) {
-    body {
-        margin: 10px;
-    }
-
-    .container {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 24px;
-    }
-
-    p.instructions,
-    .question p,
-    .question label {
-        font-size: 16px;
-    }
-
-    button {
-        font-size: 16px;
-        padding: 12px;
-    }
-
-    /* Adjust button height for better tap targets on mobile */
-    .koos-form .answer-btn {
-        height: 50px;
-        font-size: 0.9rem;
-        padding: 10px; /* Adjust padding for consistency */
-    }
-
-    /* Responsive Typography and Layout for Thank You Page */
-    .quote-banner {
-        font-size: 1rem; /* Smaller font for the quote */
-        padding: 15px; /* Reduced padding */
-    }
-
-    .quote-banner::before,
-    .quote-banner::after {
-        font-size: 2rem; /* Smaller decorative quotes */
-    }
-
-    /* Adjust confetti canvas for mobile */
-    #confetti-canvas {
-        z-index: 300; /* Lower z-index to prevent overlaying important content */
-    }
+/* ----------------- Footer Styling ----------------- */
+.footer {
+    background-color: var(--footer-background);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
 
-/* ----------------- New Styles for Horizontal, Color-Coded Buttons ----------------- */
+.footer .text-muted {
+    color: #6c757d;
+}
+
+/* ----------------- Answer Buttons Styling ----------------- */
 
 /* Hide the actual radio inputs */
 .btn-check {
@@ -144,21 +137,21 @@ button:hover {
 .answer-btn {
     flex: 1 1 auto;
     text-align: center;
-    padding: 12px; /* Reduced padding to accommodate taller buttons */
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s, color 0.3s;
-    font-size: 0.95rem; /* Slightly smaller font for better fit */
-    height: auto; /* Remove fixed height to allow dynamic sizing */
-    min-height: 60px; /* Ensure a minimum height */
+    font-size: 0.95rem;
+    height: auto;
+    min-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* Updated Styles for Consistent Text Placement */
-    white-space: normal; /* Allow text to wrap */
-    overflow: visible; /* Allow overflow */
-    text-overflow: clip; /* Remove ellipsis */
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    font-weight: normal;
 }
 
 /* Remove border from the first and last buttons to create a seamless block */
@@ -206,8 +199,7 @@ button:hover {
 /* Change background and text color when active (selected) */
 .btn-check:checked + .answer-btn {
     color: #fff;
-    /* Darken the background color for selected state */
-    background-color: #5a9;
+    background-color: #5a9; /* Adjusted to match the color scheme */
     border-color: #5a9;
 }
 
@@ -219,76 +211,80 @@ button:hover {
 /* Ensure button group displays correctly */
 .btn-group {
     display: flex;
-    gap: 3px; /* Further reduce spacing between buttons */
-    margin-bottom: 20px; /* Added spacing below button groups */
+    gap: 3px;
+    margin-bottom: 20px;
 }
 
-/* Optional: Adjust the label font weight */
-.answer-btn {
-    font-weight: normal;
-}
-
-/* Optional: Prevent buttons from shrinking on smaller screens */
+/* Prevent buttons from shrinking on smaller screens */
 .btn-group .answer-btn {
-    min-width: 60px; /* Adjust as needed */
-}
-
-/* Optional: Add pointer cursor to the buttons */
-.answer-btn {
+    min-width: 60px;
     cursor: pointer;
 }
 
-/* ---------------------------------------------------------------------------------- */
-
-/* ----------------- Additional Enhancements for Separation and Typography ----------------- */
+/* ----------------- KOOS Form Enhancements ----------------- */
 
 /* Scoped to KOOS questionnaire form */
 .koos-form {
-    /* If not already added, add this class to your main container in HTML */
+    /* Ensure this class is applied to the main container in your HTML */
     /* Example: <div class="container koos-form"> */
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
-/* Increase spacing after instruction sections */
 .koos-form .card-body p.instructions {
-    margin-bottom: 40px; /* Increased from 30px */
-    font-size: 20px; /* Increased font size */
-    font-weight: normal; /* Ensure it's not bold */
-    color: #555; /* Slightly muted color */
-    line-height: 1.6; /* Improved readability */
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: normal;
+    color: #555;
+    line-height: 1.6;
 }
 
 /* Style section headings (h2) */
 .koos-form h2.section-heading {
-    margin-top: 30px; /* Added space before headings */
-    margin-bottom: 20px; /* Added space after headings */
-    font-size: 1.8rem; /* Increased font size */
-    font-weight: bold; /* Ensure headings are bold */
-    color: #2c3e50; /* Consistent color for headings */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--heading-color);
 }
 
 /* Style questions */
 .koos-form .question p {
-    font-size: 20px; /* Increased font size */
-    font-weight: normal; /* Changed from bold to normal */
-    margin-bottom: 20px; /* Increased spacing below questions */
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
 }
 
 /* Style answer labels if needed */
 .koos-form .question label {
-    font-size: 16px; /* Increase font size if desired */
-    font-weight: normal; /* Ensure options are not overly bold */
+    font-size: 16px;
+    font-weight: normal;
 }
 
 /* Adjust the submit button */
 .koos-form button {
-    font-size: 20px; /* Increased font size */
-    padding: 18px; /* Increased padding */
-    margin-top: 50px; /* Increased top margin */
-    border-radius: 6px; /* Slightly larger border radius */
+    font-size: 20px;
+    padding: 18px;
+    margin-top: 50px;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.koos-form button:hover {
+    background-color: var(--button-primary-hover);
+    border-color: var(--button-primary-hover);
 }
 
 /* Ensure responsiveness for enhanced typography and spacing */
 @media (max-width: 600px) {
+    .koos-form {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
     .koos-form .card-body p.instructions {
         font-size: 18px;
         margin-bottom: 30px;
@@ -315,11 +311,15 @@ button:hover {
     .koos-form .answer-btn {
         height: 50px;
         font-size: 0.9rem;
-        padding: 10px; /* Adjust padding for consistency */
+        padding: 10px;
+    }
+
+    /* Add horizontal padding to prevent content from touching edges */
+    .koos-form .btn-group {
+        padding-left: 5px;
+        padding-right: 5px;
     }
 }
-
-/* ---------------------------------------------------------------------------------- */
 
 /* ----------------- Thank You Page Enhancements ----------------- */
 
