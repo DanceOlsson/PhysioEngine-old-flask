@@ -1,6 +1,8 @@
 # Import the Flask class and render_template function and others from the flask module
 from flask import Flask, render_template, request, redirect, url_for
 from flask_talisman import Talisman
+from whitenoise import WhiteNoise
+
 from datetime import datetime  # Import datetime
 import qrcode  # For generating QR codes
 import os      # For file path operations
@@ -23,6 +25,9 @@ app = Flask(__name__)
 
 # Initialize Talisman with default settings
 Talisman(app)
+
+# Configure Whitenoise to serve static files. wrap the WSGI app
+app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/', prefix='static/')
 
 # Context Processor to inject current year into all templates
 @app.context_processor
