@@ -23,8 +23,13 @@ def generate_qr():
         return "No evaluation form specified.", 400
 
     session_id = str(uuid.uuid4())
-    base_url = current_app.config['BASE_URL']  # This line is already correct
-    patient_form_url = urljoin(base_url, url_for('main.patient_form', session_id=session_id, evaluation_form=evaluation_form, _external=True))
+    base_url = current_app.config['BASE_URL']
+    
+    # Generate the relative URL
+    relative_url = url_for('main.patient_form', session_id=session_id, evaluation_form=evaluation_form)
+    
+    # Join the base URL with the relative URL
+    patient_form_url = urljoin(base_url, relative_url)
 
     current_app.logger.info(f"Generated QR code URL: {patient_form_url}")
 

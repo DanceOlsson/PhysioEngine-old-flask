@@ -19,6 +19,12 @@ class Config:
     ON_HEROKU = os.environ.get('HEROKU', '0') == '1'
     FORCE_HTTPS = os.environ.get('FORCE_HTTPS', 'true').lower() == 'true'
     
+
+    #----------------------------------
+    # Determine the BASE_URL This motherfucket is the reason it doesn't
+    # work when scanning QR codes on a phone. It's something about  
+    # the Heroku URL vs the ngrok URL.
+    #----------------------------------
     # Determine the BASE_URL
     if os.environ.get('ENVIRONMENT') == 'production':
         BASE_URL = os.environ.get('BASE_URL') or 'https://www.physioengine.com'
