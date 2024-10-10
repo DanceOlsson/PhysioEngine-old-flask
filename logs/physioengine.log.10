@@ -1,20 +1,4 @@
-2024-10-10 23:14:55,931 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
-User-Agent: Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/130.0.6723.37 Mobile/15E148 Safari/604.1
-Accept: text/css,*/*;q=0.1
-Accept-Encoding: gzip, deflate, br
-Accept-Language: en-GB,en;q=0.9
-Cookie: abuse_interstitial=safe-newly-salmon.ngrok-free.app; theme=light
-Referer: https://safe-newly-salmon.ngrok-free.app/thank_you
-Sec-Fetch-Dest: style
-Sec-Fetch-Mode: no-cors
-Sec-Fetch-Site: same-origin
-X-Forwarded-For: 83.251.191.69
-X-Forwarded-Host: safe-newly-salmon.ngrok-free.app
-X-Forwarded-Proto: https
-
- [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:48]
-2024-10-10 23:14:55,935 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
-2024-10-10 23:14:56,137 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
+2024-10-10 23:46:48,220 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
 Accept-Encoding: gzip, deflate, br, zstd
@@ -23,7 +7,7 @@ Cache-Control: max-age=0
 Cookie: abuse_interstitial=safe-newly-salmon.ngrok-free.app; theme=dark
 Dnt: 1
 Priority: u=0, i
-Referer: https://safe-newly-salmon.ngrok-free.app/wait_for_result/354fd7b8-9e92-48ec-90d9-b3a12d82616b/koos
+Referer: https://safe-newly-salmon.ngrok-free.app/wait_for_result/a571948f-e3d6-4ad8-9ed2-e382f7e6db33/koos
 Sec-Ch-Ua: "Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"
 Sec-Ch-Ua-Mobile: ?0
 Sec-Ch-Ua-Platform: "macOS"
@@ -36,12 +20,8 @@ X-Forwarded-Host: safe-newly-salmon.ngrok-free.app
 X-Forwarded-Proto: https
 
  [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:48]
-2024-10-10 23:14:56,138 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
-2024-10-10 23:14:56,139 INFO: Loaded responses: {'S1': 3, 'S2': 3, 'S3': 2, 'S4': 2, 'S5': 2, 'S6': 2, 'S7': 2, 'P1': 3, 'P2': 3, 'P3': 2, 'P4': 2, 'P5': 3, 'P6': 2, 'P7': 2, 'P8': 2, 'P9': 2, 'A1': 2, 'A2': 2, 'A3': 2, 'A4': 2, 'A5': 2, 'A6': 2, 'A7': 3, 'A8': 3, 'A9': 3, 'A10': 3, 'A11': 2, 'A12': 2, 'A13': 2, 'A14': 2, 'A15': 2, 'A16': 3, 'A17': 3, 'SP1': 3, 'SP2': 2, 'SP3': 2, 'SP4': 2, 'SP5': 2, 'Q1': 2, 'Q2': 2, 'Q3': 2, 'Q4': 3} [in /Users/alexander-olsson/physio_eval_app/app/routes/main.py:121]
-2024-10-10 23:14:56,139 INFO: Calculated result: None [in /Users/alexander-olsson/physio_eval_app/app/routes/main.py:131]
-2024-10-10 23:14:56,139 INFO: Removed result file: results/354fd7b8-9e92-48ec-90d9-b3a12d82616b.json [in /Users/alexander-olsson/physio_eval_app/app/routes/main.py:134]
-2024-10-10 23:14:56,140 INFO: Removed QR code image: app/static/qr_codes/354fd7b8-9e92-48ec-90d9-b3a12d82616b.png [in /Users/alexander-olsson/physio_eval_app/app/routes/main.py:139]
-2024-10-10 23:14:56,232 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
+2024-10-10 23:46:48,225 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
+2024-10-10 23:46:48,349 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 Accept: text/css,*/*;q=0.1
 Accept-Encoding: gzip, deflate, br, zstd
@@ -49,7 +29,7 @@ Accept-Language: sv-SE,sv;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6
 Cookie: abuse_interstitial=safe-newly-salmon.ngrok-free.app; theme=dark
 Dnt: 1
 Priority: u=0
-Referer: https://safe-newly-salmon.ngrok-free.app/wait_for_result/354fd7b8-9e92-48ec-90d9-b3a12d82616b/koos
+Referer: https://safe-newly-salmon.ngrok-free.app/wait_for_result/a571948f-e3d6-4ad8-9ed2-e382f7e6db33/koos
 Sec-Ch-Ua: "Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"
 Sec-Ch-Ua-Mobile: ?0
 Sec-Ch-Ua-Platform: "macOS"
@@ -61,39 +41,18 @@ X-Forwarded-Host: safe-newly-salmon.ngrok-free.app
 X-Forwarded-Proto: https
 
  [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:48]
-2024-10-10 23:14:56,233 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
-2024-10-10 23:16:00,156 INFO: PhysioEngine startup [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:28]
-2024-10-10 23:16:04,102 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
-User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
-Accept-Encoding: gzip, deflate, br, zstd
-Accept-Language: sv-SE,sv;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6
-Cookie: abuse_interstitial=safe-newly-salmon.ngrok-free.app; theme=dark
-Dnt: 1
-Priority: u=0, i
-Sec-Ch-Ua: "Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"
-Sec-Ch-Ua-Mobile: ?0
-Sec-Ch-Ua-Platform: "macOS"
-Sec-Fetch-Dest: document
-Sec-Fetch-Mode: navigate
-Sec-Fetch-Site: none
-Sec-Fetch-User: ?1
-Upgrade-Insecure-Requests: 1
-X-Forwarded-For: 83.251.191.69
-X-Forwarded-Host: safe-newly-salmon.ngrok-free.app
-X-Forwarded-Proto: https
-
- [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:48]
-2024-10-10 23:16:04,103 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
-2024-10-10 23:16:04,339 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
+2024-10-10 23:46:48,350 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
+2024-10-10 23:46:48,369 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 Accept: text/css,*/*;q=0.1
 Accept-Encoding: gzip, deflate, br, zstd
 Accept-Language: sv-SE,sv;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6
 Cookie: abuse_interstitial=safe-newly-salmon.ngrok-free.app; theme=dark
 Dnt: 1
+If-Modified-Since: Thu, 10 Oct 2024 17:00:36 GMT
+If-None-Match: "1728579636.0895798-9560-3980730228"
 Priority: u=0
-Referer: https://safe-newly-salmon.ngrok-free.app/
+Referer: https://safe-newly-salmon.ngrok-free.app/wait_for_result/a571948f-e3d6-4ad8-9ed2-e382f7e6db33/koos
 Sec-Ch-Ua: "Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"
 Sec-Ch-Ua-Mobile: ?0
 Sec-Ch-Ua-Platform: "macOS"
@@ -105,16 +64,18 @@ X-Forwarded-Host: safe-newly-salmon.ngrok-free.app
 X-Forwarded-Proto: https
 
  [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:48]
-2024-10-10 23:16:04,339 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
-2024-10-10 23:16:04,358 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
+2024-10-10 23:46:48,369 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
+2024-10-10 23:46:48,382 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
 Accept-Encoding: gzip, deflate, br, zstd
 Accept-Language: sv-SE,sv;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6
 Cookie: abuse_interstitial=safe-newly-salmon.ngrok-free.app; theme=dark
 Dnt: 1
-Priority: i
-Referer: https://safe-newly-salmon.ngrok-free.app/
+If-Modified-Since: Thu, 10 Oct 2024 21:39:42 GMT
+If-None-Match: "1728596382.3919537-948-1074209380"
+Priority: u=2, i
+Referer: https://safe-newly-salmon.ngrok-free.app/wait_for_result/a571948f-e3d6-4ad8-9ed2-e382f7e6db33/koos
 Sec-Ch-Ua: "Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"
 Sec-Ch-Ua-Mobile: ?0
 Sec-Ch-Ua-Platform: "macOS"
@@ -126,39 +87,41 @@ X-Forwarded-Host: safe-newly-salmon.ngrok-free.app
 X-Forwarded-Proto: https
 
  [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:48]
-2024-10-10 23:16:04,359 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
-2024-10-10 23:16:05,172 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
+2024-10-10 23:46:48,382 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
+2024-10-10 23:46:53,546 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7
 Accept-Encoding: gzip, deflate, br, zstd
 Accept-Language: sv-SE,sv;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6
+Cache-Control: max-age=0
 Cookie: abuse_interstitial=safe-newly-salmon.ngrok-free.app; theme=dark
 Dnt: 1
 Priority: u=0, i
-Referer: https://safe-newly-salmon.ngrok-free.app/
+Referer: https://safe-newly-salmon.ngrok-free.app/wait_for_result/a571948f-e3d6-4ad8-9ed2-e382f7e6db33/koos
 Sec-Ch-Ua: "Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"
 Sec-Ch-Ua-Mobile: ?0
 Sec-Ch-Ua-Platform: "macOS"
 Sec-Fetch-Dest: document
 Sec-Fetch-Mode: navigate
 Sec-Fetch-Site: same-origin
-Sec-Fetch-User: ?1
 Upgrade-Insecure-Requests: 1
 X-Forwarded-For: 83.251.191.69
 X-Forwarded-Host: safe-newly-salmon.ngrok-free.app
 X-Forwarded-Proto: https
 
  [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:48]
-2024-10-10 23:16:05,173 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
-2024-10-10 23:16:05,281 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
+2024-10-10 23:46:53,546 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
+2024-10-10 23:46:53,665 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
 User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
 Accept: text/css,*/*;q=0.1
 Accept-Encoding: gzip, deflate, br, zstd
 Accept-Language: sv-SE,sv;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6
 Cookie: abuse_interstitial=safe-newly-salmon.ngrok-free.app; theme=dark
 Dnt: 1
+If-Modified-Since: Thu, 10 Oct 2024 17:00:36 GMT
+If-None-Match: "1728579636.0895798-9560-3980730228"
 Priority: u=0
-Referer: https://safe-newly-salmon.ngrok-free.app/physio/
+Referer: https://safe-newly-salmon.ngrok-free.app/wait_for_result/a571948f-e3d6-4ad8-9ed2-e382f7e6db33/koos
 Sec-Ch-Ua: "Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"
 Sec-Ch-Ua-Mobile: ?0
 Sec-Ch-Ua-Platform: "macOS"
@@ -170,4 +133,48 @@ X-Forwarded-Host: safe-newly-salmon.ngrok-free.app
 X-Forwarded-Proto: https
 
  [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:48]
-2024-10-10 23:16:05,282 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
+2024-10-10 23:46:53,671 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+Accept: text/css,*/*;q=0.1
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: sv-SE,sv;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6
+Cookie: abuse_interstitial=safe-newly-salmon.ngrok-free.app; theme=dark
+Dnt: 1
+Priority: u=0
+Referer: https://safe-newly-salmon.ngrok-free.app/wait_for_result/a571948f-e3d6-4ad8-9ed2-e382f7e6db33/koos
+Sec-Ch-Ua: "Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Sec-Fetch-Dest: style
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: same-origin
+X-Forwarded-For: 83.251.191.69
+X-Forwarded-Host: safe-newly-salmon.ngrok-free.app
+X-Forwarded-Proto: https
+
+ [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:48]
+2024-10-10 23:46:53,671 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
+2024-10-10 23:46:53,671 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]
+2024-10-10 23:46:53,677 INFO: Headers: Host: safe-newly-salmon.ngrok-free.app
+User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+Accept: image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8
+Accept-Encoding: gzip, deflate, br, zstd
+Accept-Language: sv-SE,sv;q=0.9,en-GB;q=0.8,en-US;q=0.7,en;q=0.6
+Cookie: abuse_interstitial=safe-newly-salmon.ngrok-free.app; theme=dark
+Dnt: 1
+If-Modified-Since: Thu, 10 Oct 2024 21:39:42 GMT
+If-None-Match: "1728596382.3919537-948-1074209380"
+Priority: u=2, i
+Referer: https://safe-newly-salmon.ngrok-free.app/wait_for_result/a571948f-e3d6-4ad8-9ed2-e382f7e6db33/koos
+Sec-Ch-Ua: "Google Chrome";v="129", "Not=A?Brand";v="8", "Chromium";v="129"
+Sec-Ch-Ua-Mobile: ?0
+Sec-Ch-Ua-Platform: "macOS"
+Sec-Fetch-Dest: image
+Sec-Fetch-Mode: no-cors
+Sec-Fetch-Site: same-origin
+X-Forwarded-For: 83.251.191.69
+X-Forwarded-Host: safe-newly-salmon.ngrok-free.app
+X-Forwarded-Proto: https
+
+ [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:48]
+2024-10-10 23:46:53,678 INFO: Body: b'' [in /Users/alexander-olsson/physio_eval_app/app/__init__.py:49]

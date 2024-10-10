@@ -19,8 +19,13 @@ class Config:
     ON_HEROKU = os.environ.get('HEROKU', '0') == '1'
     FORCE_HTTPS = os.environ.get('FORCE_HTTPS', 'true').lower() == 'true'
     
-    # Update BASE_URL configuration
-    BASE_URL = os.environ.get('BASE_URL') or 'http://localhost:8000'
+    # Determine the BASE_URL
+    if os.environ.get('ENVIRONMENT') == 'production':
+        BASE_URL = os.environ.get('BASE_URL') or 'https://www.physioengine.com'
+    elif os.environ.get('USE_NGROK') == '1':
+        BASE_URL = os.environ.get('NGROK_URL') or 'https://safe-newly-salmon.ngrok-free.app'
+    else:
+        BASE_URL = 'http://localhost:8000'
     
     # Define Content Security Policy (CSP) settings
     # CSP helps prevent various types of attacks like XSS
