@@ -19,13 +19,8 @@ class Config:
     ON_HEROKU = os.environ.get('HEROKU', '0') == '1'
     FORCE_HTTPS = os.environ.get('FORCE_HTTPS', 'true').lower() == 'true'
     
-    # Set the BASE_URL depending on the environment (Heroku or local)
-    if ON_HEROKU:
-        BASE_URL = 'https://www.physioengine.com'  # URL for Heroku deployment
-        SERVER_NAME = os.environ.get('SERVER_NAME')
-        PREFERRED_URL_SCHEME = 'https'
-    else:
-        BASE_URL = 'http://localhost:8000'  # URL for local development
+    # Update BASE_URL configuration
+    BASE_URL = os.environ.get('BASE_URL') or 'http://localhost:8000'
     
     # Define Content Security Policy (CSP) settings
     # CSP helps prevent various types of attacks like XSS
@@ -53,3 +48,7 @@ class Config:
         'X-Frame-Options': 'SAMEORIGIN',
         'X-XSS-Protection': '1; mode=block'
     }
+    
+    # Add CSRF configuration
+    WTF_CSRF_ENABLED = True
+    WTF_CSRF_SECRET_KEY = os.environ.get('CSRF_SECRET_KEY') or 'your-csrf-secret-key'
