@@ -87,6 +87,10 @@ def patient_form(session_id, evaluation_form):
         if evaluation_form in ['koos', 'hoos']:
             try:
                 data = load_questionnaire_data(evaluation_form, 'swedish')
+                if not data['sections']:
+                    logging.error(f"No sections found for {evaluation_form}")
+                    return "An error occurred while loading the questionnaire.", 500
+                
                 instructions = data.get('instructions', 'Instruktioner saknas.')
                 sections = data.get('sections', [])
 
@@ -108,9 +112,11 @@ def patient_form(session_id, evaluation_form):
 def load_questionnaire_data(questionnaire, language='swedish'):
     filename = f'{questionnaire}_{language}.json'
     filepath = os.path.join('data', filename)
+    logging.info(f"Attempting to load questionnaire data from: {filepath}")
     try:
         with open(filepath, 'r', encoding='utf-8') as file:
             data = json.load(file)
+            logging.info(f"Successfully loaded data for {questionnaire}")
             instructions = data.get('instructions', 'Instruktioner saknas.')
             sections = data.get('sections', [])
             for section in sections:
@@ -121,7 +127,10 @@ def load_questionnaire_data(questionnaire, language='swedish'):
         logging.error(f"{questionnaire.upper()} data file not found: {filepath}")
         return {"instructions": "Instructions not available.", "sections": []}
     except json.JSONDecodeError as e:
-        logging.error(f"Error decoding JSON: {e}")
+        logging.error(f"Error decoding JSON for {questionnaire}: {e}")
+        return {"instructions": "Instructions not available.", "sections": []}
+    except Exception as e:
+        logging.error(f"Unexpected error loading {questionnaire} data: {str(e)}")
         return {"instructions": "Instructions not available.", "sections": []}
 
 @bp.route('/wait_for_result/<session_id>/<evaluation_form>')
