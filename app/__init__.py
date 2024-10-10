@@ -25,4 +25,10 @@ def create_app(config_class=Config):
     Talisman(app)
     app.wsgi_app = WhiteNoise(app.wsgi_app, root='app/static/')
 
+    @app.after_request
+    def add_security_headers(response):
+        for header, value in app.config['SECURE_HEADERS'].items():
+            response.headers[header] = value
+        return response
+
     return app
