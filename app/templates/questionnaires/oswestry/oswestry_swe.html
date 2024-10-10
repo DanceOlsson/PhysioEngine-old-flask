@@ -1,0 +1,14 @@
+{% extends "questionnaires/base_questionnaire.html" %}
+
+{% set questionnaire_title = "Oswestry Disability Index" %}
+{% set evaluation_form = "oswestry" %}
+
+{% block instructions %}
+<!-- Add Oswestry-specific instructions here -->
+{% endblock %}
+
+{% block questions %}
+    {% for question in questions %}
+        <!-- Add Oswestry-specific question rendering here -->
+    {% endfor %}
+{% endblock %}

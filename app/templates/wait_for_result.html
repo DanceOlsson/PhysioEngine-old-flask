@@ -1,0 +1,42 @@
+<!-- /templates/wait_for_result.html -->
+{% extends 'base.html' %}
+
+{% block title %}Waiting for Patient Results{% endblock %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnaires/styles.css') }}">
+    <!-- Meta Refresh: Refresh the page every 5 seconds -->
+    <meta http-equiv="refresh" content="5">
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Waiting for Patient Submission</h1>
+    <p class="text-center">Please ask the patient to scan the QR code and fill out the questionnaire.</p>
+    
+    <div class="text-center">
+        <!-- Display the QR code image with cache busting -->
+        <img src="{{ url_for('static', filename='qr_codes/' + session_id + '.png') }}?v={{ session_id }}" alt="QR Code" class="img-fluid mb-3">
+        <p>Scan this QR code to access the questionnaire</p>
+    </div>
+
+    <div class="alert alert-info" role="alert">
+        <p>Results will update automatically. Please wait while the patient completes the form...</p>
+        <p>You can also <a href="{{ url_for('main.wait_for_result', session_id=session_id, evaluation_form=evaluation_form) }}">refresh the page</a> manually.</p>
+    </div>
+
+    <!-- Link to go back to physiotherapist interface -->
+    <p class="text-center"><a href="{{ url_for('physio.physio') }}">Back to Dashboard</a></p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    // Set a timeout to refresh the page every 5 seconds
+    setTimeout(function(){
+        window.location.reload(true);
+    }, 5000); // 5000 milliseconds = 5 seconds
+</script>
+{% endblock %}

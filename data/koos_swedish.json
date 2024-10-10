@@ -1,6 +1,7 @@
 [
     {
         "title": "Symptom",
+        "instructions": "Tänk på de symptom Du haft från ditt knä under den senaste veckan när Du besvarar dessa frågor.",
         "questions": [
             {
                 "id": "S1",
@@ -61,6 +62,7 @@
     },
     {
         "title": "Stelhet",
+        "instructions": "Följande frågor rör ledstelhet. Ledstelhet innebär svårighet att komma igång eller ökat motstånd då Du böjer eller sträcker i knät. Markera graden av ledstelhet Du har upplevt i ditt knä den senaste veckan.",
         "questions": [
             {
                 "id": "S6",
@@ -88,6 +90,7 @@
     },
     {
         "title": "Smärta",
+        "instructions": "Vilken grad av smärta har Du känt i ditt knä den senaste veckan under följande aktiviteter?",
         "questions": [
             {
                 "id": "P1",
@@ -192,6 +195,7 @@
     },
     {
         "title": "Funktion, dagliga livet",
+        "instructions": "Följande frågor rör din fysiska förmåga. Ange graden av svårighet du upplevt den senaste veckan vid följande aktiviteter på grund av dina knäbesvär.",
         "questions": [
             {
                 "id": "A1",
@@ -384,6 +388,7 @@
     },
     {
         "title": "Funktion, fritid och idrott",
+        "instructions": "Följande frågor rör din fysiska förmåga. Ange graden av svårighet du upplevt den senaste veckan vid följande aktiviteter på grund av dina knäbesvär.",
         "questions": [
             {
                 "id": "SP1",
@@ -444,6 +449,7 @@
     },
     {
         "title": "Livskvalité",
+        "instructions": "",
         "questions": [
             {
                 "id": "Q1",
@@ -491,10 +497,4 @@
             }
         ]
     }
-
-
-
-
-
-
 ]
