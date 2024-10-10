@@ -5,8 +5,14 @@ load_dotenv()
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you-will-never-guess'
-    BASE_URL = os.environ.get('BASE_URL', 'http://localhost:8000')
     HEROKU = os.environ.get('HEROKU')
+    
+    # Use the HEROKU environment variable to determine if we're running on Heroku
+    if HEROKU:
+        BASE_URL = 'https://www.physioengine.com'  # Replace with your actual Heroku domain
+    else:
+        BASE_URL = 'http://localhost:8000'
+    
     CSP = {
         'default-src': ["'self'", 'https:', 'data:'],
         'font-src': ["'self'", 'https:', 'data:'],
