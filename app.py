@@ -16,7 +16,11 @@ load_dotenv()  # Load environment variables from a .env file
 
 from urllib.parse import urljoin
 
-BASE_URL = os.environ.get('BASE_URL', 'https://safe-newly-salmon.ngrok-free.app')  # Default to localhost for local testing
+# Determine the base URL
+if os.environ.get('HEROKU'):
+    BASE_URL = 'https://www.physioengine.com'
+else:
+    BASE_URL = os.environ.get('BASE_URL', 'http://localhost:8000')
 
 
 
@@ -25,26 +29,13 @@ app = Flask(__name__)
 
 # Configure Talisman with less restrictive CSP
 csp = {
-    'default-src': [
-        "'self'",
-        'https://cdn.jsdelivr.net',
-        'https://cdnjs.cloudflare.com',
-    ],
-    'script-src': [
-        "'self'",
-        'https://cdn.jsdelivr.net',
-        'https://cdnjs.cloudflare.com',
-        "'unsafe-inline'",
-        "'unsafe-eval'",
-    ],
-    'style-src': [
-        "'self'",
-        'https://cdn.jsdelivr.net',
-        'https://cdnjs.cloudflare.com',
-        "'unsafe-inline'",
-    ],
+    'default-src': ["'self'", 'https:', 'data:'],
+    'font-src': ["'self'", 'https:', 'data:'],
+    'img-src': ["'self'", 'https:', 'data:'],
+    'style-src': ["'self'", 'https:', "'unsafe-inline'"],
+    'script-src': ["'self'", 'https:', "'unsafe-inline'", "'unsafe-eval'"]
 }
-Talisman(app, content_security_policy=csp)
+Talisman(app, content_security_policy=csp, force_https=True)
 
 # Configure Whitenoise
 app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/', prefix='static/')
@@ -199,7 +190,7 @@ def generate_qr():
     
     # Step 4: Dynamically determine the base URL of the deployed app
     # Use the 'BASE_URL' environment variable if set; otherwise, use 'request.host_url'
-    base_url = os.environ.get('BASE_URL', request.host_url.rstrip('/'))  # Removes trailing slash to prevent double slashes
+    base_url = BASE_URL  # Removes trailing slash to prevent double slashes
     logging.info(f"Base URL: {base_url}")
     
     # Step 5: Construct the full URL for the patient form using the session ID and evaluation form
@@ -410,7 +401,13 @@ def thank_you():
 
 # Check if the executed file is the main program and run the app
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    if os.environ.get('HEROKU'):
+        # Heroku will set the PORT environment variable
+        port = int(os.environ.get('PORT', 5000))
+        app.run(host='0.0.0.0', port=port)
+    else:
+        # Local development
+        app.run(debug=True, port=8000)
 
 
 
