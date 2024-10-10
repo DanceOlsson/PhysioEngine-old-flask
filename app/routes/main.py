@@ -55,6 +55,7 @@ def test_env():
 # Add other routes from app.py here (patient_form, wait_for_result, etc.)
 @bp.route('/patient_form/<session_id>/<evaluation_form>', methods=['GET', 'POST'])
 def patient_form(session_id, evaluation_form):
+    logging.debug(f"Accessing patient_form with session_id: {session_id}, evaluation_form: {evaluation_form}")
     if request.method == 'POST':
         responses = {}
         for key, value in request.form.items():
@@ -84,18 +85,22 @@ def patient_form(session_id, evaluation_form):
     
     else:
         if evaluation_form in ['koos', 'hoos']:
-            data = load_questionnaire_data(evaluation_form, 'swedish')
-            instructions = data.get('instructions', 'Instruktioner saknas.')
-            sections = data.get('sections', [])
+            try:
+                data = load_questionnaire_data(evaluation_form, 'swedish')
+                instructions = data.get('instructions', 'Instruktioner saknas.')
+                sections = data.get('sections', [])
 
-            logging.info(f"Loaded {evaluation_form.upper()} data with {len(sections)} sections.")
+                logging.info(f"Loaded {evaluation_form.upper()} data with {len(sections)} sections.")
 
-            return render_template(
-                f'questionnaires/{evaluation_form}/{evaluation_form}_swe.html',
-                session_id=session_id,
-                instructions=instructions,
-                sections=sections
-            )
+                return render_template(
+                    f'questionnaires/{evaluation_form}/{evaluation_form}_swe.html',
+                    session_id=session_id,
+                    instructions=instructions,
+                    sections=sections
+                )
+            except Exception as e:
+                logging.error(f"Error loading questionnaire data: {str(e)}")
+                return "An error occurred while loading the questionnaire.", 500
         else:
             logging.warning(f"Unknown evaluation form requested: {evaluation_form}")
             return "Form not found", 404
