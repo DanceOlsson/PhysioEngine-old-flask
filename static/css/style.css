@@ -1,0 +1,11 @@
+/* Add any custom styles here */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    background-color: #e9ecef;
+    border-radius: .3rem;
+}

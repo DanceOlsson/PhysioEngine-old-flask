@@ -23,10 +23,30 @@ BASE_URL = os.environ.get('BASE_URL', 'https://safe-newly-salmon.ngrok-free.app'
 # Create an instance of the Flask class for your web application
 app = Flask(__name__)
 
-# Initialize Talisman with default settings
-Talisman(app)
+# Configure Talisman with less restrictive CSP
+csp = {
+    'default-src': [
+        "'self'",
+        'https://cdn.jsdelivr.net',
+        'https://cdnjs.cloudflare.com',
+    ],
+    'script-src': [
+        "'self'",
+        'https://cdn.jsdelivr.net',
+        'https://cdnjs.cloudflare.com',
+        "'unsafe-inline'",
+        "'unsafe-eval'",
+    ],
+    'style-src': [
+        "'self'",
+        'https://cdn.jsdelivr.net',
+        'https://cdnjs.cloudflare.com',
+        "'unsafe-inline'",
+    ],
+}
+Talisman(app, content_security_policy=csp)
 
-# Configure Whitenoise to serve static files. wrap the WSGI app
+# Configure Whitenoise
 app.wsgi_app = WhiteNoise(app.wsgi_app, root='static/', prefix='static/')
 
 # Context Processor to inject current year into all templates
@@ -380,7 +400,7 @@ def user_questionnaires():
 # Route for "thank you" page
 @app.route('/thank_you')
 def thank_you():
-    return render_template('thank_you.html')
+    return render_template('thank_you.html', show_navbar=False)
 
 
 
@@ -390,11 +410,7 @@ def thank_you():
 
 # Check if the executed file is the main program and run the app
 if __name__ == '__main__':
-    # Run the Flask app with debugging enabled, accessible externally & defined port
-    PORT = 8000  # Define your port number here
-    app.run(debug=True, host='0.0.0.0', port=PORT)
-
-
+    app.run(debug=True, port=8000)
 
 
 
