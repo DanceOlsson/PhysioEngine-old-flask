@@ -397,6 +397,17 @@ def thank_you():
 
 
 
+# Add this new route after your other route definitions
+@app.route('/test_env')
+def test_env():
+    heroku = os.environ.get('HEROKU')
+    base_url = BASE_URL
+    return f'HEROKU environment variable is set to: {heroku}<br>BASE_URL is: {base_url}'
+
+
+
+
+
 #------------------- NOW RUN THIS SHIT BIIIIITCHH--------------------
 
 # Check if the executed file is the main program and run the app
