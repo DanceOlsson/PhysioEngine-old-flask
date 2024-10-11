@@ -22,3 +22,9 @@ results/
 *.log
 
 .cursorrules
+
+# Ignore all log files
+*.log
+
+# Ignore the logs directory
+/logs/
