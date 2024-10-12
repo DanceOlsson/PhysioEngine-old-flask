@@ -23,7 +23,7 @@
             </div>
         </div>
 
-        <form id="questionnaireForm" method="POST" action="{{ url_for('main.patient_form', session_id=session_id, evaluation_form=evaluation_form) }}">
+        <form id="questionnaireForm" method="POST" action="{{ form_action }}">
             {% block questions %}
             <!-- Questions will be inserted here -->
             {% endblock %}
@@ -40,11 +40,11 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('questionnaireForm');
-    var submitButton = form.querySelector('button[type="submit"]');
-    
-    submitButton.addEventListener('click', function(e) {
-        e.preventDefault(); // Prevent the default form submission
-        
+
+    form.addEventListener('submit', function(e) {
+        console.log('Form submit event triggered');
+        console.log('Form action:', form.action);
+
         var questions = form.querySelectorAll('.question');
         var unansweredQuestions = [];
 
@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         if (unansweredQuestions.length > 0) {
+            e.preventDefault(); // Prevent form submission
             // Remove previous highlights
             document.querySelectorAll('.unanswered-highlight').forEach(function(el) {
                 el.classList.remove('unanswered-highlight');
@@ -85,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function() {
             // Show an alert for users
             alert('Vänligen svara på alla frågor innan du skickar in. ' + unansweredQuestions.length + ' fråga(or) är obesvarade.');
         } else {
-            // If all questions are answered, submit the form
-            form.submit();
+            // Allow the form to submit naturally
+            console.log('All questions answered, form will submit to:', form.action);
         }
     });
 });
@@ -94,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Ensure the page is scrolled to the top when it loads
 window.onload = function() {
     window.scrollTo(0, 0);
+    console.log('Page loaded, form action:', document.getElementById('questionnaireForm').action);
 };
 </script>
 <style>

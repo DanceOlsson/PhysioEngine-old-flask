@@ -111,8 +111,12 @@ def render_questionnaire(session_id, evaluation_form):
         return render_template(
             f'questionnaires/{evaluation_form}/{evaluation_form}_swe.html',
             session_id=session_id,
+            questionnaire_slug=evaluation_form,
+            questionnaire_title=QUESTIONNAIRES[evaluation_form]['name'],
             instructions=data.get('instructions', 'Instruktioner saknas.'),
-            sections=data.get('sections', [])
+            sections=data.get('sections', []),
+            evaluation_form=evaluation_form,
+            form_action=url_for('main.patient_form', session_id=session_id, evaluation_form=evaluation_form)
         )
     except Exception as e:
         logging.error(f"Error loading questionnaire data: {str(e)}")
