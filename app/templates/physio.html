@@ -7,37 +7,16 @@
 <div class="container mt-5">
     <h1 class="mb-4 text-center">Generate QR Codes for Questionnaires</h1>
     <p class="text-center">Select a questionnaire to generate a QR code for your patients.</p>
-    <!-- Bootstrap List Group for Questionnaire Options -->
     <div class="list-group">
-        <!-- KOOS Questionnaire -->
-        <a href="{{ url_for('main.generate_qr', evaluation_form='koos') }}" class="list-group-item list-group-item-action flex-column align-items-start">
+        {% for slug, questionnaire in questionnaires.items() %}
+        <a href="{{ url_for('main.generate_qr', evaluation_form=slug) }}" class="list-group-item list-group-item-action flex-column align-items-start">
             <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">KOOS Questionnaire</h5>
-                <small>Knee injury and Osteoarthritis Outcome Score</small>
+                <h5 class="mb-1">{{ questionnaire.name }}</h5>
             </div>
-            <p class="mb-1">Assess knee-related problems and their impact on daily life.</p>
+            <p class="mb-1">Sections: {{ ', '.join(questionnaire.sections.keys()) }}</p>
             <small class="text-muted">Click to generate QR Code</small>
         </a>
-        <!-- HOOS Questionnaire -->
-        <a href="{{ url_for('main.generate_qr', evaluation_form='hoos') }}" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">HOOS Questionnaire</h5>
-                <small>Hip dysfunction and Osteoarthritis Outcome Score</small>
-            </div>
-            <p class="mb-1">Assess hip-related problems and their impact on daily life.</p>
-            <small class="text-muted">Click to generate QR Code</small>
-        </a>
-        <!-- Future Questionnaires can be added here -->
-        <!-- Example:
-        <a href="{{ url_for('main.generate_qr', evaluation_form='another_form') }}" class="list-group-item list-group-item-action flex-column align-items-start">
-            <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">Another Questionnaire</h5>
-                <small>Short Description</small>
-            </div>
-            <p class="mb-1">Brief description of the questionnaire.</p>
-            <small class="text-muted">Click to generate QR Code</small>
-        </a>
-        -->
+        {% endfor %}
     </div>
 </div>
 {% endblock %}
