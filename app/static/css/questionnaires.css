@@ -80,18 +80,29 @@
     box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
 }
 
-/* Ensure the button group displays correctly */
+/* Ensure the button group displays horizontally and adapts to screen width */
 .btn-group {
     display: flex;
-    gap: 3px;
-    margin-bottom: 20px;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 0 2px; /* Add a small padding on the sides */
 }
 
-/* Prevent buttons from shrinking on smaller screens */
+/* Style for answer buttons */
 .btn-group .answer-btn {
-    min-width: 60px;
-    cursor: pointer;
+    flex: 1 1 0;
+    min-width: 60px; /* Minimum width for very small screens */
+    max-width: calc(20% - 4px); /* Maximum width for larger screens, accounting for gap */
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 8px 4px;
+    font-size: 0.85rem;
+    height: auto;
+    min-height: 60px;
 }
 
 /* Highlighting unanswered questions */
@@ -189,11 +200,26 @@
         padding: 15px;
         margin-top: 40px;
     }
+}
 
-    /* Adjust answer buttons on mobile */
+/* Adjust button sizes for different screen widths */
+@media (min-width: 400px) {
+    .btn-group {
+        padding: 0 8px; /* Slightly larger padding for bigger phones */
+    }
     .btn-group .answer-btn {
-        flex: 1 1 100%;
-        margin-bottom: 10px;
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+@media (min-width: 768px) {
+    .btn-group {
+        padding: 0 15px; /* Even larger padding for tablets and desktops */
+    }
+    .btn-group .answer-btn {
+        font-size: 0.95rem;
+        max-width: calc(20% - 8px); /* Slightly wider buttons on larger screens */
     }
 }
 
