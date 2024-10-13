@@ -9,7 +9,7 @@ bp = Blueprint('user', __name__)
 
 @bp.route('/questionnaires')
 def user_questionnaires():
-    return render_template('users/user_questionnaires.html', questionnaires=QUESTIONNAIRES, show_navbar=True)
+    return render_template('user_questionnaires.html', questionnaires=QUESTIONNAIRES, show_navbar=True)
 
 @bp.route('/questionnaire/<string:questionnaire_slug>', methods=['GET', 'POST'])
 def fill_questionnaire(questionnaire_slug):

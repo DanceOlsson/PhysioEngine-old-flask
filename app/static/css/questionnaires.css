@@ -1,0 +1,227 @@
+/* static/css/questionnaires.css */
+
+/* ----------------- Import main.css ----------------- */
+@import url('main.css');
+
+/* ----------------- Specific styles for questionnaires ----------------- */
+
+/* Hide the actual radio buttons */
+.btn-check {
+    display: none;
+}
+
+/* Style the answer buttons */
+.answer-btn {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 0.95rem;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Remove corner radius from the first and last buttons to create a seamless block */
+.btn-group .answer-btn:first-child {
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+.btn-group .answer-btn:last-child {
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+/* Change background color based on the data-color attribute */
+.answer-btn[data-color="1"] {
+    background-color: #d4f0d4; /* Soft pastel green */
+    border-color: #bfd9bf;
+}
+
+.answer-btn[data-color="2"] {
+    background-color: #e6f0cc; /* Soft yellow-green */
+    border-color: #cfd9b7;
+}
+
+.answer-btn[data-color="3"] {
+    background-color: #fff0cc; /* Soft pastel yellow */
+    border-color: #e6d9b7;
+}
+
+.answer-btn[data-color="4"] {
+    background-color: #ffe0cc; /* Soft pastel orange */
+    border-color: #e6ccb7;
+}
+
+.answer-btn[data-color="5"] {
+    background-color: #ffd0cc; /* Soft pastel red */
+    border-color: #e6bab7;
+}
+
+/* Change opacity on hover */
+.answer-btn:hover {
+    opacity: 0.8;
+}
+
+/* Change background and text color when active (selected) */
+.btn-check:checked + .answer-btn {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Style for focus outline */
+.btn-check:focus + .answer-btn {
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+/* Ensure the button group displays horizontally and adapts to screen width */
+.btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 0 2px; /* Add a small padding on the sides */
+}
+
+/* Style for answer buttons */
+.btn-group .answer-btn {
+    flex: 1 1 0;
+    min-width: 60px; /* Minimum width for very small screens */
+    max-width: calc(20% - 4px); /* Maximum width for larger screens, accounting for gap */
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 8px 4px;
+    font-size: 0.85rem;
+    height: auto;
+    min-height: 60px;
+}
+
+/* Highlighting unanswered questions */
+.unanswered-highlight {
+    border: 3px solid #ffc107; /* Bootstrap's warning color */
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #fff3cd; /* Light yellow background */
+}
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+/* ----------------- Enhancements for questionnaires ----------------- */
+.questionnaire-form {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.questionnaire-form .card-body p.instructions {
+    margin-bottom: 40px;
+    font-size: 20px;
+    font-weight: normal;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Style section headings */
+.questionnaire-form h2.section-heading {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--heading-color);
+}
+
+/* Style questions */
+.questionnaire-form .question label {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.questionnaire-form .question p {
+    font-size: 20px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+/* Adjust the submit button */
+.questionnaire-form button {
+    font-size: 20px;
+    padding: 18px;
+    margin-top: 50px;
+    border-radius: 6px;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.questionnaire-form button:hover {
+    background-color: var(--button-primary-hover);
+    border-color: var(--button-primary-hover);
+}
+
+/* ----------------- Responsive adjustments ----------------- */
+@media (max-width: 600px) {
+    .questionnaire-form {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .questionnaire-form .card-body p.instructions {
+        font-size: 18px;
+        margin-bottom: 30px;
+    }
+
+    .questionnaire-form h2.section-heading {
+        font-size: 1.5rem;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+
+    .questionnaire-form .question label {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .questionnaire-form button {
+        font-size: 16px;
+        padding: 15px;
+        margin-top: 40px;
+    }
+}
+
+/* Adjust button sizes for different screen widths */
+@media (min-width: 400px) {
+    .btn-group {
+        padding: 0 8px; /* Slightly larger padding for bigger phones */
+    }
+    .btn-group .answer-btn {
+        font-size: 0.9rem;
+        padding: 8px;
+    }
+}
+
+@media (min-width: 768px) {
+    .btn-group {
+        padding: 0 15px; /* Even larger padding for tablets and desktops */
+    }
+    .btn-group .answer-btn {
+        font-size: 0.95rem;
+        max-width: calc(20% - 8px); /* Slightly wider buttons on larger screens */
+    }
+}
+
+/* ----------------- Additional styles ----------------- */
+/* Add any additional questionnaire-specific styles here */

@@ -1,12 +1,11 @@
-<!-- templates/physio.html -->
+<!-- templates/user_questionnaires.html -->
 {% extends 'base.html' %}
 
-{% block title %}Physiotherapist's Dashboard - PhysioEngine{% endblock %}
+{% block title %}Available Questionnaires - PhysioEngine{% endblock %}
 
 {% block content %}
 <div class="container my-5">
-    <h1 class="mb-4 text-center">Generate QR Codes for Questionnaires</h1>
-    <p class="text-center">Select a questionnaire to generate a QR code for your patients.</p>
+    <h1 class="mb-4 text-center">Available Questionnaires</h1>
     <div class="list-group">
         {% for slug, questionnaire in questionnaires.items() %}
         <div class="list-group-item mb-3">
@@ -18,7 +17,7 @@
                     </button>
                 </h2>
                 <div>
-                    <a href="{{ url_for('main.generate_qr', evaluation_form=slug) }}" class="btn btn-primary btn-sm">Generate QR Code</a>
+                    <a href="{{ url_for('user.fill_questionnaire', questionnaire_slug=slug) }}" class="btn btn-primary btn-sm me-2">View and Fill</a>
                 </div>
             </div>
             <div class="collapse mt-3" id="collapse{{ loop.index }}">

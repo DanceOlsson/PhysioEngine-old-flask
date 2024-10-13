@@ -4,35 +4,36 @@
 
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnaires/styles.css') }}">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS specific to questionnaires -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/questionnaires.css') }}">
 {% endblock %}
 
 {% block content %}
-    <div class="container my-5 questionnaire-form">
-        <h1 class="mb-4 text-center">{{ questionnaire_title }}</h1>
+<div class="container my-5 questionnaire-form">
+    <h1 class="mb-4 text-center">{{ questionnaire_title }}</h1>
 
-        <!-- Instructions -->
+    <!-- Instructions -->
+    <section aria-labelledby="instructions-heading">
         <div class="card mb-4">
             <div class="card-body">
-                <h5 class="card-title">Instruktioner</h5>
+                <h2 id="instructions-heading" class="card-title h5">Instructions</h2>
                 {% block instructions %}
                 <!-- Instructions will be inserted here -->
                 {% endblock %}
             </div>
         </div>
+    </section>
 
-        <form id="questionnaireForm" method="POST" action="{{ form_action }}">
-            {% block questions %}
-            <!-- Questions will be inserted here -->
-            {% endblock %}
+    <form id="questionnaireForm" method="POST" action="{{ form_action }}">
+        {% block questions %}
+        <!-- Questions will be inserted here -->
+        {% endblock %}
 
-            <div class="text-center mt-4">
-                <button type="submit" class="btn btn-primary btn-lg">Skicka in</button>
-            </div>
-        </form>
-    </div>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+        </div>
+    </form>
+</div>
 {% endblock %}
 
 {% block scripts %}
@@ -42,9 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('questionnaireForm');
 
     form.addEventListener('submit', function(e) {
-        console.log('Form submit event triggered');
-        console.log('Form action:', form.action);
-
         var questions = form.querySelectorAll('.question');
         var unansweredQuestions = [];
 
@@ -70,45 +68,23 @@ document.addEventListener('DOMContentLoaded', function() {
             unansweredQuestions.forEach(function(question, index) {
                 // Add a more visible highlight
                 question.classList.add('unanswered-highlight');
-                
+
                 // Add a warning message
                 var warningMsg = document.createElement('div');
                 warningMsg.className = 'alert alert-warning mt-2';
-                warningMsg.innerHTML = '<strong>Vänligen notera:</strong> Denna fråga är inte besvarad ännu.';
+                warningMsg.innerHTML = '<strong>Please note:</strong> This question is not answered.';
                 question.appendChild(warningMsg);
 
                 // If it's the first unanswered question, scroll to it
                 if (index === 0) {
-                    question.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+                    question.scrollIntoView({behavior: "smooth", block: "center"});
                 }
             });
 
             // Show an alert for users
-            alert('Vänligen svara på alla frågor innan du skickar in. ' + unansweredQuestions.length + ' fråga(or) är obesvarade.');
-        } else {
-            // Allow the form to submit naturally
-            console.log('All questions answered, form will submit to:', form.action);
+            alert('Please answer all the questions before submitting. ' + unansweredQuestions.length + ' question(s) are unanswered.');
         }
     });
 });
-
-// Ensure the page is scrolled to the top when it loads
-window.onload = function() {
-    window.scrollTo(0, 0);
-    console.log('Page loaded, form action:', document.getElementById('questionnaireForm').action);
-};
 </script>
-<style>
-    .unanswered-highlight {
-        border: 3px solid #ffc107; /* Bootstrap's warning color */
-        padding: 10px;
-        margin-bottom: 15px;
-        background-color: #fff3cd; /* Light yellow background */
-    }
-    .alert-warning {
-        color: #856404;
-        background-color: #fff3cd;
-        border-color: #ffeeba;
-    }
-</style>
 {% endblock %}

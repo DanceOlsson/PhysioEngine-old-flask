@@ -1,0 +1,58 @@
+/* static/css/main.css */
+
+/* ----------------- Importing Google Fonts ----------------- */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap');
+
+/* ----------------- Root variables for easy maintenance ----------------- */
+:root {
+    --primary-color: #27ae60; /* Green */
+    --secondary-color: #2c3e50; /* Deep blue */
+    --accent-color: #3498db; /* Light blue */
+    --background-color: #f7f7f7; /* Light gray */
+    --text-color: #333333; /* Dark gray */
+    --heading-color: #2c3e50; /* Deep blue for headings */
+    --card-background: #ffffff; /* White for cards */
+    --footer-background: #ffffff; /* White for footer */
+    --button-primary-hover: #1a252f; /* Darker deep blue */
+    --button-secondary-hover: #1e8449; /* Darker soft green */
+}
+
+/* ----------------- Global styles ----------------- */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Slab', serif;
+    color: var(--heading-color);
+}
+
+/* ----------------- Navbar styling ----------------- */
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+/* ----------------- Footer styling ----------------- */
+.footer {
+    background-color: var(--footer-background);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.footer .text-muted {
+    color: #6c757d;
+}
+
+/* ----------------- Utility classes ----------------- */
+/* Add any global utility classes here */
+
+/* ----------------- Media queries ----------------- */
+/* Place global media queries here if needed */
+
+/* Navbar Logo Styling */
+.navbar-logo {
+    width: 50px;
+    height: 50px;
+}
