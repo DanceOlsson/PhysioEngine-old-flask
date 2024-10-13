@@ -167,28 +167,28 @@ p {
 
 /* Change background color based on data-color attribute */
 .answer-btn[data-color="1"] {
-    background-color: #ffcccc; /* Light Red */
-    border-color: #ff9999;
+    background-color: #d4f0d4; /* Soft pastel green */
+    border-color: #bfd9bf;
 }
 
 .answer-btn[data-color="2"] {
-    background-color: #ffe5cc; /* Light Orange */
-    border-color: #ffbf80;
+    background-color: #e6f0cc; /* Soft yellow-green */
+    border-color: #cfd9b7;
 }
 
 .answer-btn[data-color="3"] {
-    background-color: #fff2cc; /* Light Yellow */
-    border-color: #ffff80;
+    background-color: #fff0cc; /* Soft pastel yellow */
+    border-color: #e6d9b7;
 }
 
 .answer-btn[data-color="4"] {
-    background-color: #d9ead3; /* Light Green */
-    border-color: #a8d08d;
+    background-color: #ffe0cc; /* Soft pastel orange */
+    border-color: #e6ccb7;
 }
 
 .answer-btn[data-color="5"] {
-    background-color: #a8d08d; /* Green */
-    border-color: #6fa8dc;
+    background-color: #ffd0cc; /* Soft pastel red */
+    border-color: #e6bab7;
 }
 
 /* Change text color on hover */
