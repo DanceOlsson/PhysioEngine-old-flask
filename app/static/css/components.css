@@ -59,6 +59,16 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
+/* ----------------- Elegant Button Styling ----------------- */
+.elegant-btn {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.elegant-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 /* ----------------- Additional component styles ----------------- */
 /* Add styles for other components like forms, modals, etc. */
 
