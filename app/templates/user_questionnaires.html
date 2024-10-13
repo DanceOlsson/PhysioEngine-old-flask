@@ -1,23 +1,55 @@
 <!-- templates/user_questionnaires.html -->
 {% extends 'base.html' %}
 
-{% block title %}Tillgängliga Frågeformulär - PhysioEngine{% endblock %}
+{% block title %}Available Questionnaires - PhysioEngine{% endblock %}
 
 {% block content %}
 <div class="container my-5">
-    <h1 class="mb-4 text-center">Tillgängliga Frågeformulär</h1>
-    <div class="row">
+    <h1 class="mb-4 text-center">Available Questionnaires</h1>
+    <div class="list-group">
         {% for slug, questionnaire in questionnaires.items() %}
-        <div class="col-md-6 mb-4">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body d-flex flex-column">
-                    <h2 class="card-title h5">{{ questionnaire.name }}</h2>
-                    <p class="card-text">Sektioner: {{ ', '.join(questionnaire.sections.keys()) }}</p>
-                    <a href="{{ url_for('user.fill_questionnaire', questionnaire_slug=slug) }}" class="btn btn-primary mt-auto">Visa och Fyll i</a>
+        <div class="list-group-item mb-3">
+            <div class="d-flex justify-content-between align-items-center">
+                <h2 class="h5 mb-0">
+                    <button class="btn btn-link p-0 text-decoration-none btn-toggle" data-bs-toggle="collapse" data-bs-target="#collapse{{ loop.index }}" aria-expanded="false" aria-controls="collapse{{ loop.index }}">
+                        {{ questionnaire.name }}
+                        <i class="fas fa-chevron-down dropdown-indicator ms-2"></i>
+                    </button>
+                </h2>
+                <div>
+                    <a href="{{ url_for('user.fill_questionnaire', questionnaire_slug=slug) }}" class="btn btn-primary btn-sm me-2">View and Fill</a>
                 </div>
+            </div>
+            <div class="collapse mt-3" id="collapse{{ loop.index }}">
+                <p>Sections: {{ ', '.join(questionnaire.sections.keys()) }}</p>
+                <!-- Add more information here if needed -->
             </div>
         </div>
         {% endfor %}
     </div>
 </div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<!-- Include Font Awesome CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-ku1bQjT4B1TOqgy3kP5r6xEw7vDhBT1tqVd6Tk3PPaN5UjPRb1grkFtPfXh5UzntHEaNuD1mf8j+EGH2wJ3+Kg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var collapseElements = document.querySelectorAll('.collapse');
+        collapseElements.forEach(function(el) {
+            el.addEventListener('show.bs.collapse', function () {
+                var button = el.parentElement.querySelector('.dropdown-indicator');
+                button.classList.remove('fa-chevron-down');
+                button.classList.add('fa-chevron-up');
+            });
+            el.addEventListener('hide.bs.collapse', function () {
+                var button = el.parentElement.querySelector('.dropdown-indicator');
+                button.classList.remove('fa-chevron-up');
+                button.classList.add('fa-chevron-down');
+            });
+        });
+    });
+</script>
 {% endblock %}

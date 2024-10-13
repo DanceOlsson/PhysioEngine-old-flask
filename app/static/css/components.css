@@ -69,6 +69,16 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* ----------------- Dropdown Indicator ----------------- */
+.dropdown-indicator {
+    transition: transform 0.3s;
+    margin-left: 8px;
+}
+
+.btn-toggle {
+    position: relative;
+}
+
 /* ----------------- Additional component styles ----------------- */
 /* Add styles for other components like forms, modals, etc. */
 
