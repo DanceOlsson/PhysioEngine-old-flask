@@ -27,7 +27,7 @@
                     {% for section in result.sections %}
                     <tr>
                         <td><strong>{{ section.name }}</strong></td>
-                        <td>{{ section.score }}</td>
+                        <td>{{ "%.2f"|format(section.score|float) }}</td>
                         <td>{{ section.interpretation }}</td>
                     </tr>
                     {% endfor %}
@@ -35,7 +35,7 @@
             </table>
             
             {% if result.total_score is defined %}
-            <p class="mt-3"><strong>Total Poäng:</strong> {{ result.total_score }}</p>
+            <p class="mt-3"><strong>Total Poäng:</strong> {{ "%.2f"|format(result.total_score|float) }}</p>
             {% endif %}
             
             {% if result.interpretation %}
