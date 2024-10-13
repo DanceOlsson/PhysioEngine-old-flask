@@ -1,26 +1,26 @@
 <!-- /templates/display_result.html -->
 {% extends 'base.html' %}
 
-{% block title %}{{ result.questionnaire_name }} Results - PhysioEngine{% endblock %}
+{% block title %}{{ result.questionnaire_name }} Resultat - PhysioEngine{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1 class="mb-4 text-center">{{ result.questionnaire_name }} Results</h1>
+<div class="container my-5">
+    <h1 class="mb-4 text-center">{{ result.questionnaire_name }} Resultat</h1>
 
     <div class="alert alert-warning" role="alert">
-        <strong>Warning:</strong> These results are temporary and will be deleted when you close or update this window. 
-        Please make sure to copy or save the results as they cannot be retrieved once they disappear.
+        <strong>Varning:</strong> Dessa resultat är tillfälliga och kommer att raderas när du stänger eller uppdaterar detta fönster. 
+        Var god kopiera eller spara resultaten eftersom de inte kan återställas när de försvinner.
     </div>
 
-    <div class="card mb-4">
+    <div class="card mb-4 shadow-sm">
         <div class="card-body">
-            <h2 class="card-title">Scores</h2>
+            <h2 class="card-title h5">Poäng</h2>
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Section</th>
-                        <th>Score</th>
-                        <th>Interpretation</th>
+                        <th scope="col">Sektion</th>
+                        <th scope="col">Poäng</th>
+                        <th scope="col">Tolkning</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,18 +35,18 @@
             </table>
             
             {% if result.total_score is defined %}
-            <p class="mt-3"><strong>Total Score:</strong> {{ result.total_score }}</p>
+            <p class="mt-3"><strong>Total Poäng:</strong> {{ result.total_score }}</p>
             {% endif %}
             
             {% if result.interpretation %}
-            <p class="mt-3"><strong>Overall Interpretation:</strong> {{ result.interpretation }}</p>
+            <p class="mt-3"><strong>Övergripande Tolkning:</strong> {{ result.interpretation }}</p>
             {% endif %}
         </div>
     </div>
 
     <div class="text-center">
-        <a href="{{ url_for('physio.physio') }}" class="btn btn-primary me-2">Questionnaires</a>
-        <a href="{{ url_for('main.home') }}" class="btn btn-secondary">Home</a>
+        <a href="{{ url_for('physio.physio') }}" class="btn btn-primary me-2">Frågeformulär</a>
+        <a href="{{ url_for('main.home') }}" class="btn btn-secondary">Hem</a>
     </div>
 </div>
 {% endblock %}

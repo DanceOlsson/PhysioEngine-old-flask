@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Thank You - PhysioEngine{% endblock %}
+{% block title %}Tack - PhysioEngine{% endblock %}
 
 {% block head %}
 {{ super() }}
@@ -34,15 +34,16 @@
 {% endblock %}
 
 {% block content %}
-<div class="thank-you-container">
-    <h1 class="display-4">Thank You!</h1>
-    <p class="lead">Your responses have been submitted successfully.</p>
-    <div class="quote-card">
+<div class="container my-5 text-center">
+    <h1 class="display-4">Tack!</h1>
+    <p class="lead">Dina svar har skickats in framgångsrikt.</p>
+    <div class="quote-card my-4 p-4 bg-light border rounded">
         <blockquote class="blockquote">
-            <p class="mb-0">"What gets measured, gets managed."</p>
+            <p class="mb-0">"Det som mäts, hanteras."</p>
+            <footer class="blockquote-footer">Peter Drucker</footer>
         </blockquote>
     </div>
-    <a href="{{ url_for('main.home') }}" class="btn btn-primary mt-3">Return Home</a>
+    <a href="{{ url_for('main.home') }}" class="btn btn-primary mt-3">Återvänd till Hem</a>
 </div>
 {% endblock %}
 
@@ -51,7 +52,6 @@
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Check if confetti function exists
     if (typeof confetti === 'function') {
         confetti({
             particleCount: 100,

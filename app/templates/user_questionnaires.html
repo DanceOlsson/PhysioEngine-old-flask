@@ -1,0 +1,23 @@
+<!-- templates/user_questionnaires.html -->
+{% extends 'base.html' %}
+
+{% block title %}Tillgängliga Frågeformulär - PhysioEngine{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4 text-center">Tillgängliga Frågeformulär</h1>
+    <div class="row">
+        {% for slug, questionnaire in questionnaires.items() %}
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="card-title h5">{{ questionnaire.name }}</h2>
+                    <p class="card-text">Sektioner: {{ ', '.join(questionnaire.sections.keys()) }}</p>
+                    <a href="{{ url_for('user.fill_questionnaire', questionnaire_slug=slug) }}" class="btn btn-primary mt-auto">Visa och Fyll i</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

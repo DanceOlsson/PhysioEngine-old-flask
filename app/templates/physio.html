@@ -1,20 +1,20 @@
 <!-- templates/physio.html -->
 {% extends 'base.html' %}
 
-{% block title %}Physiotherapist Dashboard{% endblock %}
+{% block title %}Fysioterapeutens Dashboard - PhysioEngine{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1 class="mb-4 text-center">Generate QR Codes for Questionnaires</h1>
-    <p class="text-center">Select a questionnaire to generate a QR code for your patients.</p>
+<div class="container my-5">
+    <h1 class="mb-4 text-center">Generera QR-koder för frågeformulär</h1>
+    <p class="text-center">Välj ett frågeformulär för att generera en QR-kod till dina patienter.</p>
     <div class="list-group">
         {% for slug, questionnaire in questionnaires.items() %}
-        <a href="{{ url_for('main.generate_qr', evaluation_form=slug) }}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <a href="{{ url_for('main.generate_qr', evaluation_form=slug) }}" class="list-group-item list-group-item-action">
             <div class="d-flex w-100 justify-content-between">
                 <h5 class="mb-1">{{ questionnaire.name }}</h5>
+                <small>Klicka för att generera QR-kod</small>
             </div>
-            <p class="mb-1">Sections: {{ ', '.join(questionnaire.sections.keys()) }}</p>
-            <small class="text-muted">Click to generate QR Code</small>
+            <p class="mb-1">Sektioner: {{ ', '.join(questionnaire.sections.keys()) }}</p>
         </a>
         {% endfor %}
     </div>

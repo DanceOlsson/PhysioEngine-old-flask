@@ -4,55 +4,50 @@
 {% block title %}Home - PhysioEngine{% endblock %}
 
 {% block content %}
-<main>
-    <div class="container mt-5">
-        <!-- Introduction Section using Bootstrap Jumbotron -->
-        <div class="jumbotron bg-white shadow-sm rounded">
-            <h1 class="display-4">Welcome to PhysioEngine</h1>
-            <p class="lead">Streamlining physiotherapy assessments for professionals and patients alike.</p>
-            <hr class="my-4">
-            <!-- Origin Story and Function -->
+<div class="container my-5">
+    <section class="jumbotron text-center bg-white shadow-sm rounded">
+        <div class="container">
+            <h1 class="jumbotron-heading">Welcome to PhysioEngine</h1>
+            <p class="lead text-muted">
+                Streamlining physiotherapy assessments for professionals and patients alike.
+            </p>
             <p>
                 Welcome to PhysioEngine! A simple tool designed to save you time. As a physiotherapist, you can quickly generate QR codes for patients to fill out evaluation forms on their phones. Results show up instantly, so no more manual data entry. Easy, fast, and efficient—get back to focusing on your patients!
             </p>
-            <!-- Call to Action Buttons -->
-            <div class="d-flex justify-content-center">
-                <!-- Ensure the Physiotherapist button is primary (green) -->
-                <a class="btn btn-primary btn-lg mr-3" href="{{ url_for('physio.physio') }}" role="button">
-                    <i class="fas fa-user-md mr-2"></i>I'm a Physiotherapist
+            <p>
+                <a href="{{ url_for('physio.physio') }}" class="btn btn-primary my-2">
+                    <i class="fas fa-user-md me-2"></i>I'm a Physiotherapist
                 </a>
-                <!-- Ensure the User Questionnaire button is secondary (blue) -->
-                <a class="btn btn-secondary btn-lg" href="{{ url_for('user.user_questionnaires') }}" role="button">
-                    <i class="fas fa-list mr-2"></i>Explore Questionnaires
+                <a href="{{ url_for('user.user_questionnaires') }}" class="btn btn-secondary my-2">
+                    <i class="fas fa-list me-2"></i>Explore Questionnaires
                 </a>
-            </div>
+            </p>
         </div>
+    </section>
 
-        <!-- Additional Information Section -->
-        <div class="row">
-            <!-- Physiotherapist Information -->
-            <div class="col-md-6 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="card-title">For Physiotherapists</h3>
-                        <p class="card-text">
-                            Generate QR codes for your patients to fill out evaluation forms on their devices. Receive instant feedback and streamline your workflow.
-                        </p>
-                    </div>
+    <div class="row">
+        <!-- Physiotherapist Information -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">For Physiotherapists</h3>
+                    <p class="card-text">
+                        Generate QR codes for your patients to fill out evaluation forms on their devices. Receive instant feedback and streamline your workflow.
+                    </p>
                 </div>
             </div>
-            <!-- Patient Information -->
-            <div class="col-md-6 mb-4">
-                <div class="card h-100 shadow-sm">
-                    <div class="card-body">
-                        <h3 class="card-title">For Patients</h3>
-                        <p class="card-text">
-                            Easily access and complete questionnaires provided by your physiotherapist. Your responses are securely transmitted for immediate analysis.
-                        </p>
-                    </div>
+        </div>
+        <!-- Patient Information -->
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h3 class="card-title">For Patients</h3>
+                    <p class="card-text">
+                        Easily access and complete questionnaires provided by your physiotherapist. Your responses are securely transmitted for immediate analysis.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-</main>
+</div>
 {% endblock %}

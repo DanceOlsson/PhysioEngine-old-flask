@@ -1,0 +1,46 @@
+<!-- templates/questionnaires/koos_swe.html -->
+{% extends "questionnaires/base_questionnaire.html" %}
+
+{% set questionnaire_title = "KOOS Frågeformulär" %}
+{% set evaluation_form = "koos" %}
+
+{% block instructions %}
+<p class="card-text instructions section-instructions">
+    {{ instructions }}
+</p>
+{% endblock %}
+
+{% block questions %}
+    {% for section in sections %}
+        <section class="mb-4">
+            <h2 class="section-heading">{{ section.title }}</h2>
+            {% if section.instructions %}
+                <p class="section-instructions">
+                    {{ section.instructions }}
+                </p>
+            {% endif %}
+
+            {% for question in section.questions %}
+                {% if question.type == 'instructions' %}
+                    <p class="section-instructions">{{ question.text }}</p>
+                {% else %}
+                    <div class="question mb-4" id="question_{{ question.id }}">
+                        <label class="form-label">{{ question.id }}. {{ question.text }}</label>
+                        <div class="btn-group d-flex flex-row flex-wrap" role="group" aria-label="Svarsalternativ">
+                            {% for option in question.options %}
+                                <input type="radio" class="btn-check" name="question_{{ question.id }}" id="question_{{ question.id }}_{{ option.value }}" value="{{ option.value }}" required>
+                                <label class="btn answer-btn" for="question_{{ question.id }}_{{ option.value }}" data-color="{{ loop.index }}">
+                                    {{ option.text }}
+                                </label>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </section>
+    {% endfor %}
+{% endblock %}
+
+{% block after_questions %}
+<p class="mt-4">Tack för att du har tagit dig tid att besvara alla frågor!</p>
+{% endblock %}

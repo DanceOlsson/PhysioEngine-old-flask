@@ -1,0 +1,66 @@
+/* static/css/components.css */
+
+/* ----------------- Importera main.css ----------------- */
+@import url('main.css');
+
+/* ----------------- Knappens styling ----------------- */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--button-primary-hover);
+    border-color: var(--button-primary-hover);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--button-secondary-hover);
+    border-color: var(--button-secondary-hover);
+}
+
+/* ----------------- Kortens styling ----------------- */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    background-color: var(--card-background);
+}
+
+.card-title {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.card-text {
+    color: #5a5a5a;
+}
+
+/* ----------------- Anpassning av listgrupp ----------------- */
+.list-group-item {
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    padding: 20px;
+    background-color: var(--card-background);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.list-group-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ----------------- Ytterligare komponentstilar ----------------- */
+/* Lägg till stilar för andra komponenter som formulär, modaler etc. */
+
+/* ----------------- Mediefrågor ----------------- */
+/* Placera komponent-specifika mediefrågor här om det behövs */
