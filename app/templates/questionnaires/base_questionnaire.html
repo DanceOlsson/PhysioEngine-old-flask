@@ -16,7 +16,7 @@
     <section aria-labelledby="instructions-heading">
         <div class="card mb-4">
             <div class="card-body">
-                <h2 id="instructions-heading" class="card-title h5">Instruktioner</h2>
+                <h2 id="instructions-heading" class="card-title h5">Instructions</h2>
                 {% block instructions %}
                 <!-- Instructions will be inserted here -->
                 {% endblock %}
@@ -30,7 +30,7 @@
         {% endblock %}
 
         <div class="text-center mt-4">
-            <button type="submit" class="btn btn-primary btn-lg">Skicka in</button>
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
         </div>
     </form>
 </div>
@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Add a warning message
                 var warningMsg = document.createElement('div');
                 warningMsg.className = 'alert alert-warning mt-2';
-                warningMsg.innerHTML = '<strong>Vänligen notera:</strong> Denna fråga är inte besvarad.';
+                warningMsg.innerHTML = '<strong>Please note:</strong> This question is not answered.';
                 question.appendChild(warningMsg);
 
                 // If it's the first unanswered question, scroll to it
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             // Show an alert for users
-            alert('Vänligen svara på alla frågor innan du skickar in. ' + unansweredQuestions.length + ' fråga(or) är obesvarade.');
+            alert('Please answer all the questions before submitting. ' + unansweredQuestions.length + ' question(s) are unanswered.');
         }
     });
 });

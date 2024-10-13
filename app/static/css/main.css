@@ -1,23 +1,23 @@
 /* static/css/main.css */
 
-/* ----------------- Importering av Google Fonts ----------------- */
+/* ----------------- Importing Google Fonts ----------------- */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Slab&display=swap');
 
-/* ----------------- Rotvariabler för enkel underhållning ----------------- */
+/* ----------------- Root variables for easy maintenance ----------------- */
 :root {
-    --primary-color: #27ae60; /* Grön */
-    --secondary-color: #2c3e50; /* Djupblå */
-    --accent-color: #3498db; /* Ljusblå */
-    --background-color: #f7f7f7; /* Ljusgrå */
-    --text-color: #333333; /* Mörkgrå */
-    --heading-color: #2c3e50; /* Djupblå för rubriker */
-    --card-background: #ffffff; /* Vit för kort */
-    --footer-background: #ffffff; /* Vit för sidfot */
-    --button-primary-hover: #1a252f; /* Mörkare djupblå */
-    --button-secondary-hover: #1e8449; /* Mörkare mjukgrön */
+    --primary-color: #27ae60; /* Green */
+    --secondary-color: #2c3e50; /* Deep blue */
+    --accent-color: #3498db; /* Light blue */
+    --background-color: #f7f7f7; /* Light gray */
+    --text-color: #333333; /* Dark gray */
+    --heading-color: #2c3e50; /* Deep blue for headings */
+    --card-background: #ffffff; /* White for cards */
+    --footer-background: #ffffff; /* White for footer */
+    --button-primary-hover: #1a252f; /* Darker deep blue */
+    --button-secondary-hover: #1e8449; /* Darker soft green */
 }
 
-/* ----------------- Globala stilar ----------------- */
+/* ----------------- Global styles ----------------- */
 body {
     font-family: 'Open Sans', sans-serif;
     background-color: var(--background-color);
@@ -30,12 +30,12 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--heading-color);
 }
 
-/* ----------------- Navigationsfältets styling ----------------- */
+/* ----------------- Navbar styling ----------------- */
 .navbar-brand img {
     margin-right: 10px;
 }
 
-/* ----------------- Sidfotens styling ----------------- */
+/* ----------------- Footer styling ----------------- */
 .footer {
     background-color: var(--footer-background);
     box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
@@ -45,8 +45,8 @@ h1, h2, h3, h4, h5, h6 {
     color: #6c757d;
 }
 
-/* ----------------- Nyttoklasser ----------------- */
-/* Lägg till eventuella globala nyttoklasser här */
+/* ----------------- Utility classes ----------------- */
+/* Add any global utility classes here */
 
-/* ----------------- Mediefrågor ----------------- */
-/* Placera globala mediefrågor här om det behövs */
+/* ----------------- Media queries ----------------- */
+/* Place global media queries here if needed */

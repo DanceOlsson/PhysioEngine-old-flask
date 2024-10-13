@@ -1,9 +1,9 @@
 /* static/css/components.css */
 
-/* ----------------- Importera main.css ----------------- */
+/* ----------------- Import main.css ----------------- */
 @import url('main.css');
 
-/* ----------------- Knappens styling ----------------- */
+/* ----------------- Button styling ----------------- */
 .btn-primary {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
@@ -26,7 +26,7 @@
     border-color: var(--button-secondary-hover);
 }
 
-/* ----------------- Kortens styling ----------------- */
+/* ----------------- Card styling ----------------- */
 .card {
     border: none;
     border-radius: 10px;
@@ -43,7 +43,7 @@
     color: #5a5a5a;
 }
 
-/* ----------------- Anpassning av listgrupp ----------------- */
+/* ----------------- List group customization ----------------- */
 .list-group-item {
     border: none;
     border-radius: 10px;
@@ -59,8 +59,8 @@
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* ----------------- Ytterligare komponentstilar ----------------- */
-/* Lägg till stilar för andra komponenter som formulär, modaler etc. */
+/* ----------------- Additional component styles ----------------- */
+/* Add styles for other components like forms, modals, etc. */
 
-/* ----------------- Mediefrågor ----------------- */
-/* Placera komponent-specifika mediefrågor här om det behövs */
+/* ----------------- Media queries ----------------- */
+/* Place component-specific media queries here if needed */

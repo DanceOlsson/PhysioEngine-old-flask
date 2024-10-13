@@ -1,16 +1,16 @@
 /* static/css/questionnaires.css */
 
-/* ----------------- Importera main.css ----------------- */
+/* ----------------- Import main.css ----------------- */
 @import url('main.css');
 
-/* ----------------- Specifika stilar för frågeformulär ----------------- */
+/* ----------------- Specific styles for questionnaires ----------------- */
 
-/* Dölj de faktiska radioknapparna */
+/* Hide the actual radio buttons */
 .btn-check {
     display: none;
 }
 
-/* Styla svarsknapparna */
+/* Style the answer buttons */
 .answer-btn {
     flex: 1 1 auto;
     text-align: center;
@@ -26,7 +26,7 @@
     justify-content: center;
 }
 
-/* Ta bort hörnradie från första och sista knappen för att skapa en sömlös block */
+/* Remove corner radius from the first and last buttons to create a seamless block */
 .btn-group .answer-btn:first-child {
     border-top-left-radius: 4px;
     border-bottom-left-radius: 4px;
@@ -37,50 +37,50 @@
     border-bottom-right-radius: 4px;
 }
 
-/* Ändra bakgrundsfärg baserat på data-color attributet */
+/* Change background color based on the data-color attribute */
 .answer-btn[data-color="1"] {
-    background-color: #d4f0d4; /* Mjuk pastellgrön */
+    background-color: #d4f0d4; /* Soft pastel green */
     border-color: #bfd9bf;
 }
 
 .answer-btn[data-color="2"] {
-    background-color: #e6f0cc; /* Mjuk gulgrön */
+    background-color: #e6f0cc; /* Soft yellow-green */
     border-color: #cfd9b7;
 }
 
 .answer-btn[data-color="3"] {
-    background-color: #fff0cc; /* Mjuk pastellgul */
+    background-color: #fff0cc; /* Soft pastel yellow */
     border-color: #e6d9b7;
 }
 
 .answer-btn[data-color="4"] {
-    background-color: #ffe0cc; /* Mjuk pastellorange */
+    background-color: #ffe0cc; /* Soft pastel orange */
     border-color: #e6ccb7;
 }
 
 .answer-btn[data-color="5"] {
-    background-color: #ffd0cc; /* Mjuk pastellröd */
+    background-color: #ffd0cc; /* Soft pastel red */
     border-color: #e6bab7;
 }
 
-/* Ändra textfärg vid hovring */
+/* Change opacity on hover */
 .answer-btn:hover {
     opacity: 0.8;
 }
 
-/* Ändra bakgrund och textfärg när aktiv (vald) */
+/* Change background and text color when active (selected) */
 .btn-check:checked + .answer-btn {
     color: #fff;
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
-/* Stil för fokusmarkering */
+/* Style for focus outline */
 .btn-check:focus + .answer-btn {
     box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
 }
 
-/* Se till att knappgruppen visas korrekt */
+/* Ensure the button group displays correctly */
 .btn-group {
     display: flex;
     gap: 3px;
@@ -88,18 +88,18 @@
     flex-wrap: wrap;
 }
 
-/* Förhindra att knappar krymper på mindre skärmar */
+/* Prevent buttons from shrinking on smaller screens */
 .btn-group .answer-btn {
     min-width: 60px;
     cursor: pointer;
 }
 
-/* Markering av obesvarade frågor */
+/* Highlighting unanswered questions */
 .unanswered-highlight {
-    border: 3px solid #ffc107; /* Bootstraps varningsfärg */
+    border: 3px solid #ffc107; /* Bootstrap's warning color */
     padding: 10px;
     margin-bottom: 15px;
-    background-color: #fff3cd; /* Ljusgul bakgrund */
+    background-color: #fff3cd; /* Light yellow background */
 }
 
 .alert-warning {
@@ -108,7 +108,7 @@
     border-color: #ffeeba;
 }
 
-/* ----------------- Förbättringar av frågeformulär ----------------- */
+/* ----------------- Enhancements for questionnaires ----------------- */
 .questionnaire-form {
     padding-left: 15px;
     padding-right: 15px;
@@ -122,7 +122,7 @@
     line-height: 1.6;
 }
 
-/* Styla sektionsrubriker */
+/* Style section headings */
 .questionnaire-form h2.section-heading {
     margin-top: 30px;
     margin-bottom: 20px;
@@ -131,7 +131,7 @@
     color: var(--heading-color);
 }
 
-/* Styla frågor */
+/* Style questions */
 .questionnaire-form .question label {
     font-size: 20px;
     font-weight: normal;
@@ -144,7 +144,7 @@
     margin-bottom: 20px;
 }
 
-/* Justera skicka-knappen */
+/* Adjust the submit button */
 .questionnaire-form button {
     font-size: 20px;
     padding: 18px;
@@ -161,7 +161,7 @@
     border-color: var(--button-primary-hover);
 }
 
-/* ----------------- Responsiva justeringar ----------------- */
+/* ----------------- Responsive adjustments ----------------- */
 @media (max-width: 600px) {
     .questionnaire-form {
         padding-left: 10px;
@@ -190,12 +190,12 @@
         margin-top: 40px;
     }
 
-    /* Justera svarsknappar på mobil */
+    /* Adjust answer buttons on mobile */
     .btn-group .answer-btn {
         flex: 1 1 100%;
         margin-bottom: 10px;
     }
 }
 
-/* ----------------- Ytterligare stilar ----------------- */
-/* Lägg till eventuella ytterligare frågeformulär-specifika stilar här */
+/* ----------------- Additional styles ----------------- */
+/* Add any additional questionnaire-specific styles here */
