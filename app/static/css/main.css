@@ -50,3 +50,9 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ----------------- Media queries ----------------- */
 /* Place global media queries here if needed */
+
+/* Navbar Logo Styling */
+.navbar-logo {
+    width: 50px;
+    height: 50px;
+}
