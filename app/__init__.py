@@ -9,10 +9,16 @@ from flask import Flask, request
 from flask_talisman import Talisman
 from whitenoise import WhiteNoise
 from config import Config
+from werkzeug.middleware.proxy_fix import ProxyFix
 
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
+
+# Apply ProxyFix middleware
+# You should use this when your Flask app is deployed behind a proxy (like on Heroku) and you 
+# want to ensure your app behaves correctly when handling HTTPS traffic.
+    app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1)
 
     # Set up logging
     if not app.debug and not app.testing:
@@ -34,7 +40,7 @@ def create_app(config_class=Config):
     app.register_blueprint(physio.bp, url_prefix='/physio')
 
     # Initialize extensions
-    Talisman(app, content_security_policy=app.config['CSP'])
+    Talisman(app, content_security_policy=app.config['CSP'], force_https=True)
     app.wsgi_app = WhiteNoise(app.wsgi_app, root='app/static/')
 
     @app.after_request
