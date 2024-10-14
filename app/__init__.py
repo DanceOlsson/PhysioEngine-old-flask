@@ -40,7 +40,7 @@ def create_app(config_class=Config):
     app.register_blueprint(physio.bp, url_prefix='/physio')
 
     # Initialize extensions
-    Talisman(app, content_security_policy=app.config['CSP'])
+    Talisman(app, content_security_policy=app.config['CSP'], force_https=True)
     app.wsgi_app = WhiteNoise(app.wsgi_app, root='app/static/')
 
     @app.after_request
