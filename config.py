@@ -50,7 +50,7 @@ class Config:
     # Configure SSL if necessary
     if ON_HEROKU and FORCE_HTTPS:
         # SSL configuration can be added here if needed
-        pass
+        SECURE_SSL_REDIRECT = True
     
     # Security headers
     SECURE_HEADERS = {
