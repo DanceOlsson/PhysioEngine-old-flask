@@ -27,7 +27,7 @@ class Config:
     #----------------------------------
     # Determine the BASE_URL
     if os.environ.get('ENVIRONMENT') == 'production':
-        BASE_URL = os.environ.get('BASE_URL') or 'https://www.physioengine.com'
+        BASE_URL = 'https://www.physioengine.com'
     elif os.environ.get('USE_NGROK') == '1':
         BASE_URL = os.environ.get('NGROK_URL') or 'https://safe-newly-salmon.ngrok-free.app'
     else:
@@ -36,12 +36,30 @@ class Config:
     # Define Content Security Policy (CSP) settings
     # CSP helps prevent various types of attacks like XSS
     CSP = {
-        'default-src': ["'self'", 'https:', 'data:'],  # Default source for content
-        'font-src': ["'self'", 'https:', 'data:'],     # Allowed sources for fonts
-        'img-src': ["'self'", 'https:', 'data:'],      # Allowed sources for images
-        'style-src': ["'self'", 'https:', "'unsafe-inline'"],  # Allowed sources for styles
-        'script-src': ["'self'", 'https:', "'unsafe-inline'", "'unsafe-eval'"]  # Allowed sources for scripts
+        'default-src': "'self'",
+        'style-src': [
+            "'self'",
+            'https://cdnjs.cloudflare.com',
+            'https://fonts.googleapis.com',
+            'https://cdn.jsdelivr.net',
+        ],
+        'script-src': [
+            "'self'",
+            'https://cdnjs.cloudflare.com',
+            'https://cdn.jsdelivr.net',
+        ],
+        'font-src': [
+            "'self'",
+            'https://fonts.gstatic.com',
+            'https://cdnjs.cloudflare.com',
+        ],
+        'img-src': [
+            "'self'",
+            'data:',
+            'https://www.physioengine.com',
+        ],
     }
+    
     
     # Debug and logging settings
     DEBUG = os.environ.get('FLASK_DEBUG', '0') == '1'
@@ -63,3 +81,6 @@ class Config:
     # Add CSRF configuration
     WTF_CSRF_ENABLED = True
     WTF_CSRF_SECRET_KEY = os.environ.get('CSRF_SECRET_KEY') or 'your-csrf-secret-key'
+
+    # In your configuration
+    PREFERRED_URL_SCHEME = 'https'
