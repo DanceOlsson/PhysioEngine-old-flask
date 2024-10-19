@@ -9,10 +9,29 @@ bp = Blueprint('user', __name__)
 
 @bp.route('/questionnaires')
 def user_questionnaires():
+    """
+    Render the page displaying all available questionnaires for users.
+
+    Returns:
+        str: Rendered HTML template for user questionnaires.
+    """
     return render_template('user_questionnaires.html', questionnaires=QUESTIONNAIRES, show_navbar=True)
 
 @bp.route('/questionnaire/<string:questionnaire_slug>', methods=['GET', 'POST'])
 def fill_questionnaire(questionnaire_slug):
+    """
+    Handle GET and POST requests for a specific questionnaire.
+
+    Args:
+        questionnaire_slug (str): The unique identifier for the questionnaire.
+
+    Returns:
+        str: Rendered HTML template for the questionnaire or results page.
+
+    Raises:
+        404: If the questionnaire slug is invalid.
+        500: If an error occurs while loading or processing the questionnaire.
+    """
     current_app.logger.info(f"Accessed fill_questionnaire with slug: {questionnaire_slug}, method: {request.method}")
     
     if questionnaire_slug not in QUESTIONNAIRES:
@@ -48,11 +67,26 @@ def fill_questionnaire(questionnaire_slug):
         return "An error occurred while loading the questionnaire.", 500
 
 def handle_user_form_submission(questionnaire_slug):
+    """
+    Process the submitted questionnaire form and calculate the results.
+
+    Args:
+        questionnaire_slug (str): The unique identifier for the questionnaire.
+
+    Returns:
+        str: Rendered HTML template displaying the questionnaire results.
+
+    Raises:
+        400: If the questionnaire type is unknown.
+        500: If an error occurs while processing the responses.
+    """
     current_app.logger.info(f"Handling form submission for {questionnaire_slug}")
     try:
+        # Extract responses from the form data
         responses = {key.split('_')[1]: int(value) for key, value in request.form.items() if key.startswith('question_')}
         current_app.logger.info(f"Received responses: {responses}")
         
+        # Calculate scores based on the questionnaire type
         if questionnaire_slug == 'koos':
             result = calculate_koos_scores(responses)
         elif questionnaire_slug == 'hoos':

@@ -46,6 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var questions = form.querySelectorAll('.question');
         var unansweredQuestions = [];
 
+        // Check each question for an answer
         questions.forEach(function(question) {
             var radios = question.querySelectorAll('input[type="radio"]');
             var answered = Array.from(radios).some(radio => radio.checked);
@@ -56,7 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (unansweredQuestions.length > 0) {
             e.preventDefault(); // Prevent form submission
-            // Remove previous highlights
+            
+            // Remove previous highlights and warnings
             document.querySelectorAll('.unanswered-highlight').forEach(function(el) {
                 el.classList.remove('unanswered-highlight');
                 var warningMsg = el.querySelector('.alert-warning');
@@ -65,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
 
+            // Highlight unanswered questions and add warnings
             unansweredQuestions.forEach(function(question, index) {
                 // Add a more visible highlight
                 question.classList.add('unanswered-highlight');
@@ -75,13 +78,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 warningMsg.innerHTML = '<strong>Please note:</strong> This question is not answered.';
                 question.appendChild(warningMsg);
 
-                // If it's the first unanswered question, scroll to it
+                // Scroll to the first unanswered question
                 if (index === 0) {
                     question.scrollIntoView({behavior: "smooth", block: "center"});
                 }
             });
 
-            // Show an alert for users
+            // Alert the user about unanswered questions
             alert('Please answer all the questions before submitting. ' + unansweredQuestions.length + ' question(s) are unanswered.');
         }
     });
